@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="YfE-in-g1k">
+            <objects>
+                <viewController id="5lw-Ao-jva" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DWl-5C-zzg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRk-PL-5Dk">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <items>
+                                    <barButtonItem title="Item" image="icon_mapview-deselected" id="HkY-42-sqU"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gRc-gH-xhK"/>
+                                    <barButtonItem title="Item" image="icon_listview-deselected" id="6Qt-NY-NZ3"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3K-uI-LPq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="LOGOUT" width="42" style="plain" id="Va8-9P-sZa"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UPI-eO-rG2"/>
+                                    <barButtonItem title="On The Map" width="42" style="plain" id="3gc-M0-meK"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JXe-LW-a8H"/>
+                                    <barButtonItem style="plain" systemItem="refresh" id="ele-hj-D1k"/>
+                                    <barButtonItem style="plain" systemItem="add" id="gDF-hF-x9l"/>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u7J-Eg-RjD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="T3K-uI-LPq" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="3O1-GG-GoJ"/>
+                            <constraint firstItem="DRk-PL-5Dk" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="3TY-8M-aAU"/>
+                            <constraint firstItem="T3K-uI-LPq" firstAttribute="top" secondItem="NDR-0n-a35" secondAttribute="top" id="E1b-uH-j24"/>
+                            <constraint firstItem="DRk-PL-5Dk" firstAttribute="top" secondItem="u7J-Eg-RjD" secondAttribute="bottom" id="NOd-Qx-bGl"/>
+                            <constraint firstItem="NDR-0n-a35" firstAttribute="trailing" secondItem="u7J-Eg-RjD" secondAttribute="trailing" id="Uom-Qf-jeZ"/>
+                            <constraint firstItem="u7J-Eg-RjD" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="aiY-jI-fhO"/>
+                            <constraint firstItem="T3K-uI-LPq" firstAttribute="trailing" secondItem="NDR-0n-a35" secondAttribute="trailing" id="cTf-4i-W9U"/>
+                            <constraint firstItem="u7J-Eg-RjD" firstAttribute="top" secondItem="T3K-uI-LPq" secondAttribute="bottom" id="dCA-PR-6JA"/>
+                            <constraint firstItem="DRk-PL-5Dk" firstAttribute="bottom" secondItem="NDR-0n-a35" secondAttribute="bottom" id="r5q-SO-g8J"/>
+                            <constraint firstItem="DRk-PL-5Dk" firstAttribute="trailing" secondItem="NDR-0n-a35" secondAttribute="trailing" id="wo2-RQ-ZbQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NDR-0n-a35"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lll-0d-yMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
+    </resources>
+</document>

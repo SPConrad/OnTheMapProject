@@ -12,6 +12,9 @@
 		83CF64A32124E4A700DAD14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64A12124E4A700DAD14A /* Main.storyboard */; };
 		83CF64A52124E4A900DAD14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64A42124E4A900DAD14A /* Assets.xcassets */; };
 		83CF64A82124E4A900DAD14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64A62124E4A900DAD14A /* LaunchScreen.storyboard */; };
+		83CF64B22124E97600DAD14A /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64B12124E97600DAD14A /* LoginScreen.storyboard */; };
+		83CF64B421251D9500DAD14A /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64B321251D9500DAD14A /* Map.storyboard */; };
+		83CF64B7212523ED00DAD14A /* AddLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64B6212523ED00DAD14A /* AddLocation.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		83CF64A42124E4A900DAD14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83CF64A72124E4A900DAD14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83CF64A92124E4A900DAD14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83CF64B12124E97600DAD14A /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
+		83CF64B321251D9500DAD14A /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		83CF64B6212523ED00DAD14A /* AddLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddLocation.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 		83CF649C2124E4A700DAD14A /* OnTheMapProject */ = {
 			isa = PBXGroup;
 			children = (
+				83CF64B5212523C700DAD14A /* AddLocation */,
+				83CF64B02124E8E900DAD14A /* Map */,
+				83CF64AF2124E8E100DAD14A /* Login */,
 				83CF649D2124E4A700DAD14A /* AppDelegate.swift */,
 				83CF649F2124E4A700DAD14A /* ViewController.swift */,
 				83CF64A12124E4A700DAD14A /* Main.storyboard */,
@@ -62,6 +71,30 @@
 				83CF64A92124E4A900DAD14A /* Info.plist */,
 			);
 			path = OnTheMapProject;
+			sourceTree = "<group>";
+		};
+		83CF64AF2124E8E100DAD14A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				83CF64B12124E97600DAD14A /* LoginScreen.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		83CF64B02124E8E900DAD14A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				83CF64B321251D9500DAD14A /* Map.storyboard */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		83CF64B5212523C700DAD14A /* AddLocation */ = {
+			isa = PBXGroup;
+			children = (
+				83CF64B6212523ED00DAD14A /* AddLocation.storyboard */,
+			);
+			path = AddLocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +157,9 @@
 			files = (
 				83CF64A82124E4A900DAD14A /* LaunchScreen.storyboard in Resources */,
 				83CF64A52124E4A900DAD14A /* Assets.xcassets in Resources */,
+				83CF64B421251D9500DAD14A /* Map.storyboard in Resources */,
+				83CF64B7212523ED00DAD14A /* AddLocation.storyboard in Resources */,
+				83CF64B22124E97600DAD14A /* LoginScreen.storyboard in Resources */,
 				83CF64A32124E4A700DAD14A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
