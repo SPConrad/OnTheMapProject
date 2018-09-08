@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="VaV-Ku-iLN">
             <objects>
-                <viewController id="ffg-H7-Puy" sceneMemberID="viewController">
+                <viewController id="ffg-H7-Puy" customClass="LoginViewController" customModule="OnTheMapProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9N5-9Q-mfb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,9 @@
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPress:" destination="ffg-H7-Puy" eventType="touchUpInside" id="FFo-Vn-OKe"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xiO-nj-RnJ">
                                 <rect key="frame" x="44" y="280" width="286" height="30"/>
@@ -37,37 +40,42 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeF-7M-I3S">
-                                <rect key="frame" x="67" y="494" width="241" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="xfp-3i-GuE">
                                 <rect key="frame" x="150" y="123" width="62" height="62"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-6N-hUR">
+                                <rect key="frame" x="68" y="487" width="216" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Don't have an account? Sign up"/>
+                                <connections>
+                                    <action selector="pressSignUpButton:" destination="ffg-H7-Puy" eventType="touchUpInside" id="OAB-tA-7vM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xiO-nj-RnJ" firstAttribute="leading" secondItem="Ihe-IG-Yz9" secondAttribute="leading" constant="44" id="3M1-SC-wVW"/>
-                            <constraint firstItem="JeF-7M-I3S" firstAttribute="leading" secondItem="Ihe-IG-Yz9" secondAttribute="leading" constant="67" id="3js-ib-K8K"/>
-                            <constraint firstItem="Ihe-IG-Yz9" firstAttribute="bottom" secondItem="JeF-7M-I3S" secondAttribute="bottom" constant="152" id="9jt-dd-zTr"/>
                             <constraint firstItem="mZ9-6h-o6T" firstAttribute="top" secondItem="xiO-nj-RnJ" secondAttribute="bottom" constant="38" id="ADe-Bf-j4k"/>
                             <constraint firstItem="xfp-3i-GuE" firstAttribute="leading" secondItem="Ihe-IG-Yz9" secondAttribute="leading" constant="150" id="Geq-2C-te9"/>
                             <constraint firstItem="Ihe-IG-Yz9" firstAttribute="trailing" secondItem="mZ9-6h-o6T" secondAttribute="trailing" constant="45" id="YcE-yN-3EX"/>
                             <constraint firstItem="xfp-3i-GuE" firstAttribute="top" secondItem="Ihe-IG-Yz9" secondAttribute="top" constant="103" id="Zfi-Ze-Ezj"/>
                             <constraint firstItem="bzg-Xo-Xhu" firstAttribute="leading" secondItem="Ihe-IG-Yz9" secondAttribute="leading" constant="44" id="a24-PI-9WW"/>
                             <constraint firstItem="Ihe-IG-Yz9" firstAttribute="trailing" secondItem="xfp-3i-GuE" secondAttribute="trailing" constant="163" id="cFw-lB-95S"/>
-                            <constraint firstItem="Ihe-IG-Yz9" firstAttribute="trailing" secondItem="JeF-7M-I3S" secondAttribute="trailing" constant="67" id="etm-6r-SuP"/>
                             <constraint firstItem="bzg-Xo-Xhu" firstAttribute="top" secondItem="mZ9-6h-o6T" secondAttribute="bottom" constant="51" id="mJm-Rr-9Tm"/>
                             <constraint firstItem="xiO-nj-RnJ" firstAttribute="top" secondItem="xfp-3i-GuE" secondAttribute="bottom" constant="95" id="mzc-me-sqP"/>
                             <constraint firstItem="Ihe-IG-Yz9" firstAttribute="trailing" secondItem="xiO-nj-RnJ" secondAttribute="trailing" constant="45" id="o12-OY-h40"/>
                             <constraint firstItem="mZ9-6h-o6T" firstAttribute="leading" secondItem="Ihe-IG-Yz9" secondAttribute="leading" constant="44" id="vD6-NO-hI9"/>
-                            <constraint firstItem="JeF-7M-I3S" firstAttribute="top" secondItem="bzg-Xo-Xhu" secondAttribute="bottom" constant="35" id="wJU-Uq-Glg"/>
                             <constraint firstItem="Ihe-IG-Yz9" firstAttribute="trailing" secondItem="bzg-Xo-Xhu" secondAttribute="trailing" constant="45" id="yWB-e2-bFx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ihe-IG-Yz9"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="xiO-nj-RnJ" id="7rS-HY-XMw"/>
+                        <outlet property="loginButton" destination="bzg-Xo-Xhu" id="2aG-qI-its"/>
+                        <outlet property="logoImageView" destination="xfp-3i-GuE" id="7Jd-rs-L40"/>
+                        <outlet property="passwordTextField" destination="mZ9-6h-o6T" id="mQR-4q-wEw"/>
+                        <outlet property="signupButton" destination="HPI-6N-hUR" id="z8O-Mk-SK4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zX8-xF-bes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

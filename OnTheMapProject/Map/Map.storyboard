@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="YfE-in-g1k">
             <objects>
-                <viewController id="5lw-Ao-jva" sceneMemberID="viewController">
+                <viewController id="5lw-Ao-jva" customClass="MapViewController" customModule="OnTheMapProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DWl-5C-zzg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                     <barButtonItem style="plain" systemItem="add" id="gDF-hF-x9l"/>
                                 </items>
                             </toolbar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u7J-Eg-RjD">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-Ze-MP9">
                                 <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                             </mapView>
                         </subviews>
@@ -45,13 +45,13 @@
                         <constraints>
                             <constraint firstItem="T3K-uI-LPq" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="3O1-GG-GoJ"/>
                             <constraint firstItem="DRk-PL-5Dk" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="3TY-8M-aAU"/>
+                            <constraint firstItem="tfE-Ze-MP9" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="7NK-Wh-hiW"/>
+                            <constraint firstItem="NDR-0n-a35" firstAttribute="trailing" secondItem="tfE-Ze-MP9" secondAttribute="trailing" id="7eU-Ev-fIK"/>
                             <constraint firstItem="T3K-uI-LPq" firstAttribute="top" secondItem="NDR-0n-a35" secondAttribute="top" id="E1b-uH-j24"/>
-                            <constraint firstItem="DRk-PL-5Dk" firstAttribute="top" secondItem="u7J-Eg-RjD" secondAttribute="bottom" id="NOd-Qx-bGl"/>
-                            <constraint firstItem="NDR-0n-a35" firstAttribute="trailing" secondItem="u7J-Eg-RjD" secondAttribute="trailing" id="Uom-Qf-jeZ"/>
-                            <constraint firstItem="u7J-Eg-RjD" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="aiY-jI-fhO"/>
+                            <constraint firstItem="DRk-PL-5Dk" firstAttribute="top" secondItem="tfE-Ze-MP9" secondAttribute="bottom" id="Zda-iK-r7w"/>
                             <constraint firstItem="T3K-uI-LPq" firstAttribute="trailing" secondItem="NDR-0n-a35" secondAttribute="trailing" id="cTf-4i-W9U"/>
-                            <constraint firstItem="u7J-Eg-RjD" firstAttribute="top" secondItem="T3K-uI-LPq" secondAttribute="bottom" id="dCA-PR-6JA"/>
                             <constraint firstItem="DRk-PL-5Dk" firstAttribute="bottom" secondItem="NDR-0n-a35" secondAttribute="bottom" id="r5q-SO-g8J"/>
+                            <constraint firstItem="tfE-Ze-MP9" firstAttribute="top" secondItem="T3K-uI-LPq" secondAttribute="bottom" id="u7o-Fu-wsx"/>
                             <constraint firstItem="DRk-PL-5Dk" firstAttribute="trailing" secondItem="NDR-0n-a35" secondAttribute="trailing" id="wo2-RQ-ZbQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NDR-0n-a35"/>
