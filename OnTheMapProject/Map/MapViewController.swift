@@ -10,6 +10,8 @@ import UIKit
 
 class MapViewController: ViewController {
     
+    var location: Location?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

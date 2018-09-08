@@ -94,6 +94,7 @@
 		83CF649C2124E4A700DAD14A /* OnTheMapProject */ = {
 			isa = PBXGroup;
 			children = (
+				83C4A7E3212E354000F6B94E /* Location.swift */,
 				833286372133589500D64C1A /* Protocols */,
 				8332863421334A6800D64C1A /* NetworkServices */,
 				83CF64B5212523C700DAD14A /* AddLocation */,
@@ -132,7 +133,6 @@
 			children = (
 				83CF64B6212523ED00DAD14A /* Main.storyboard */,
 				83A6CDF8212A1FBF0001373F /* AddLocationViewController.swift */,
-				83C4A7E3212E354000F6B94E /* Location.swift */,
 			);
 			path = AddLocation;
 			sourceTree = "<group>";

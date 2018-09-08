@@ -8,18 +8,20 @@
 
 import UIKit
 
-struct StudentLocation: Codable {
-    let objectId: String
-    let uniqueKey: String
-    let firstName: String
-    let lastName: String
-    let mapString: String
-    let mediaURL: String
-    let latitude: String
-    let longitude: String
-    let createdAt: String
-    let updatedAt: String
-}
+let sample: [String:AnyObject] =
+    [
+        "objectId": "abc123" as AnyObject,
+        "uniqueKey": "11iudda03" as AnyObject,
+        "firstName": "Sean" as AnyObject,
+        "lastName": "Conrad" as AnyObject,
+        "mapString": "" as AnyObject,
+        "mediaUrl": "" as AnyObject,
+        "latitude": "35.995649" as AnyObject,
+        "longitude": "-78.901753" as AnyObject,
+        "createdAt": "" as AnyObject,
+        "updatedAt": "" as AnyObject
+    ]
+
 
 class AddLocationViewController: ViewController {
     
@@ -35,6 +37,7 @@ class AddLocationViewController: ViewController {
         super.viewDidLoad()
         locationController = LocationController()
         locations = [Location()]
+        locations.append(Location(location: sample))
         // Do any additional setup after loading the view.
     }
     
@@ -43,8 +46,7 @@ class AddLocationViewController: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func findLocation(_ sender: Any) {
+    func getAllLocations() {
         locationController.getLocations(completion: { responseData in
             let parsedData = JSON.deserialize(data: responseData)
             //print(parsedResult["results"])
@@ -55,6 +57,24 @@ class AddLocationViewController: ViewController {
             }
             print("hello world")
         })
+    }
+    private func dismissKeyboard() {
+        namedLocationTextField.resignFirstResponder()
+        urlTextField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        _ = namedLocationTextField.resignFirstResponder()
+        _ = urlTextField.resignFirstResponder()
+    }
+    
+    @IBAction func findLocation(_ sender: Any) {
+        if let mapVc = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController {
+            mapVc.location = locations[0]
+            self.present(mapVc, animated: true, completion: nil)
+        } else {
+            print("whoops")
+        }
     }
     
     
