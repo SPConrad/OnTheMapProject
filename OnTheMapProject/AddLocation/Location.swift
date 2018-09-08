@@ -9,31 +9,48 @@
 import Foundation
 import MapKit
 
-struct Location: Codable {
-    var createdAt: String!
-    var firstName: String!
-    var lastName: String!
-    var latitude: Float!
-    var longitude: Float!
-    var mapString: String!
-    var mediaURL: String!
-    var objectId: String!
-    var uniqueKey: Int!
-    var updatedAt: String!
+struct Location { //: Codable {
+    var createdAt: String?
+    var firstName: String?
+    var lastName: String?
+    var latitude: Double?
+    var longitude: Double?
+    var mapString: String?
+    var mediaURL: String?
+    var objectId: String?
+    var uniqueKey: String?
+    var updatedAt: String?
     
-    enum CodingKeys: String, CodingKey {
-        case createdAt = "createdAt"
-        case firstName = "firstName"
-        case lastName = "lastName"
-        case latitude = "latitude"
-        case longitude = "longitude"
-        case mapString = "mapString"
-        case mediaURL = "mediaURL"
-        case objectId = "objectId"
-        case uniqueKey = "uniqueKey"
-        case updatedAt = "updatedAt"
+    init() {
+        
     }
     
+    init(location: [String:AnyObject]) {
+        createdAt = location["createdAt"] as? String ?? ""
+        firstName = location["firstName"] as? String ?? ""
+        lastName = location["lastName"] as? String ?? ""
+        latitude = location["latitude"] as? Double ?? 0
+        longitude = location["longitude"] as? Double ?? 0
+        mapString = location["mapString"] as? String ?? ""
+        mediaURL = location["mediaURL"] as? String ?? ""
+        objectId = location["objectId"] as? String ?? ""
+        updatedAt = location["updatedAt"] as? String ?? ""
+        uniqueKey = location["uniqueKey"] as? String ?? ""
+    }
+    
+//    enum CodingKeys: String, CodingKey {
+//        case createdAt = "createdAt"
+//        case firstName = "firstName"
+//        case lastName = "lastName"
+//        case latitude = "latitude"
+//        case longitude = "longitude"
+//        case mapString = "mapString"
+//        case mediaURL = "mediaURL"
+//        case objectId = "objectId"
+//        case uniqueKey = "uniqueKey"
+//        case updatedAt = "updatedAt"
+//    }
+//
     
     
 }

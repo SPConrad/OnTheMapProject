@@ -24,6 +24,7 @@ struct StudentLocation: Codable {
 class AddLocationViewController: ViewController {
     
     var locationController: LocationController!
+    var locations: [Location]!
     
     @IBOutlet weak var namedLocationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
@@ -33,6 +34,7 @@ class AddLocationViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationController = LocationController()
+        locations = [Location()]
         // Do any additional setup after loading the view.
     }
     
@@ -47,26 +49,12 @@ class AddLocationViewController: ViewController {
             let parsedData = JSON.deserialize(data: responseData)
             //print(parsedResult["results"])
             if let results = try? parsedData["results"] as? [[String:AnyObject]] {
-                var locations: [Location] = [Location]()
-                
                 for result in results! {
-                    print(result)
-                    let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
-                    
-                    
+                    self.locations.append(Location(location: result))
                 }
-                
-//                for result in results! {
-//                    try locations.append(Location(from: result as! Decoder))
-//                }
             }
-            
-            
-            
             print("hello world")
-            
         })
-
     }
     
     
