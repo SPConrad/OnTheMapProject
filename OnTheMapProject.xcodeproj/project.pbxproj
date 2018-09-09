@@ -23,6 +23,7 @@
 		83CF64B421251D9500DAD14A /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64B321251D9500DAD14A /* Map.storyboard */; };
 		83CF64B7212523ED00DAD14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64B6212523ED00DAD14A /* Main.storyboard */; };
 		83FC44D721443EE4006777C6 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC44D621443EE4006777C6 /* JSON.swift */; };
+		83FC44D921459511006777C6 /* LocationListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC44D821459511006777C6 /* LocationListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		83CF64B321251D9500DAD14A /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		83CF64B6212523ED00DAD14A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		83FC44D621443EE4006777C6 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		83FC44D821459511006777C6 /* LocationListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				83CF64B321251D9500DAD14A /* Map.storyboard */,
 				83A6CDF6212A1FAE0001373F /* MapViewController.swift */,
+				83FC44D821459511006777C6 /* LocationListController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				83A6CDFB212A208E0001373F /* LoginViewController.swift in Sources */,
 				83702AAF21399B0A00418262 /* LocationService.swift in Sources */,
 				83C4A7E4212E354000F6B94E /* Location.swift in Sources */,
+				83FC44D921459511006777C6 /* LocationListController.swift in Sources */,
 				83A6CDF9212A1FBF0001373F /* AddLocationViewController.swift in Sources */,
 				83702AAD21399AFA00418262 /* LocationController.swift in Sources */,
 				8332863621334ADB00D64C1A /* AuthenticationController.swift in Sources */,

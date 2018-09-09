@@ -29,8 +29,8 @@ struct Location { //: Codable {
         createdAt = location["createdAt"] as? String ?? ""
         firstName = location["firstName"] as? String ?? ""
         lastName = location["lastName"] as? String ?? ""
-        latitude = location["latitude"] as? Double ?? 0
-        longitude = location["longitude"] as? Double ?? 0
+        latitude = location["latitude"] as? Double ?? 0.0
+        longitude = location["longitude"] as? Double ?? 0.0
         mapString = location["mapString"] as? String ?? ""
         mediaURL = location["mediaURL"] as? String ?? ""
         objectId = location["objectId"] as? String ?? ""

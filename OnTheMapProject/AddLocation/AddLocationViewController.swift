@@ -14,10 +14,10 @@ let sample: [String:AnyObject] =
         "uniqueKey": "11iudda03" as AnyObject,
         "firstName": "Sean" as AnyObject,
         "lastName": "Conrad" as AnyObject,
-        "mapString": "" as AnyObject,
-        "mediaUrl": "" as AnyObject,
-        "latitude": "35.995649" as AnyObject,
-        "longitude": "-78.901753" as AnyObject,
+        "mapString": "http://www.google.com" as AnyObject,
+        "mediaUrl": "http://www.google.com" as AnyObject,
+        "latitude": 35.995649 as AnyObject,
+        "longitude": -78.901753 as AnyObject,
         "createdAt": "" as AnyObject,
         "updatedAt": "" as AnyObject
     ]
@@ -36,7 +36,7 @@ class AddLocationViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationController = LocationController()
-        locations = [Location()]
+        locations = [Location]()
         locations.append(Location(location: sample))
         // Do any additional setup after loading the view.
     }
@@ -70,7 +70,7 @@ class AddLocationViewController: ViewController {
     
     @IBAction func findLocation(_ sender: Any) {
         if let mapVc = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController {
-            mapVc.location = locations[0]
+            mapVc.studentLocation = locations[0]
             self.present(mapVc, animated: true, completion: nil)
         } else {
             print("whoops")
