@@ -43,19 +43,27 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rDZ-rx-EsY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DRk-PL-5Dk" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="3TY-8M-aAU"/>
                             <constraint firstItem="U1p-yQ-SMj" firstAttribute="trailing" secondItem="NDR-0n-a35" secondAttribute="trailing" id="4B4-8Q-W4S"/>
+                            <constraint firstItem="rDZ-rx-EsY" firstAttribute="top" secondItem="U1p-yQ-SMj" secondAttribute="bottom" id="TAg-tJ-FX5"/>
+                            <constraint firstItem="NDR-0n-a35" firstAttribute="trailing" secondItem="rDZ-rx-EsY" secondAttribute="trailing" id="aiQ-aD-Hu4"/>
+                            <constraint firstItem="DRk-PL-5Dk" firstAttribute="top" secondItem="rDZ-rx-EsY" secondAttribute="bottom" id="awH-IP-Hxg"/>
                             <constraint firstItem="U1p-yQ-SMj" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="gKU-ZV-uot"/>
                             <constraint firstItem="U1p-yQ-SMj" firstAttribute="top" secondItem="NDR-0n-a35" secondAttribute="top" id="lMK-98-AGO"/>
                             <constraint firstItem="DRk-PL-5Dk" firstAttribute="bottom" secondItem="NDR-0n-a35" secondAttribute="bottom" id="r5q-SO-g8J"/>
+                            <constraint firstItem="rDZ-rx-EsY" firstAttribute="leading" secondItem="NDR-0n-a35" secondAttribute="leading" id="vov-du-Ghx"/>
                             <constraint firstItem="DRk-PL-5Dk" firstAttribute="trailing" secondItem="NDR-0n-a35" secondAttribute="trailing" id="wo2-RQ-ZbQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NDR-0n-a35"/>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="rDZ-rx-EsY" id="TVR-Zp-peS"/>
                         <outlet property="navbar" destination="U1p-yQ-SMj" id="gbB-fy-BHS"/>
                         <outlet property="toolbar" destination="DRk-PL-5Dk" id="nTd-vL-cFE"/>
                     </connections>

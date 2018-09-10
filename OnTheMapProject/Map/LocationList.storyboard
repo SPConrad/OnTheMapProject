@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--LocationListViewController-->
+        <scene sceneID="MfD-Po-5Gq">
+            <objects>
+                <viewController restorationIdentifier="LocationListViewController" storyboardIdentifier="LocationListViewController" title="LocationListViewController" id="J9u-gj-eec" customClass="LocationListViewController" customModule="OnTheMapProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QHq-0t-2J5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7E-Qv-KRs">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <items>
+                                    <barButtonItem title="Item" image="icon_mapview-deselected" id="Lg6-C1-xBI"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hPv-qo-jr0"/>
+                                    <barButtonItem title="Item" image="icon_listview-deselected" id="r6S-zr-j3R">
+                                        <connections>
+                                            <action selector="locationList:" destination="J9u-gj-eec" id="hub-b0-ceK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrZ-BP-NIQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="R4h-Bx-LTW">
+                                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="1Td-wD-zb6">
+                                            <connections>
+                                                <action selector="logout:" destination="J9u-gj-eec" id="cSb-pW-RTT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="vW3-kz-aBP">
+                                                <connections>
+                                                    <action selector="add:" destination="J9u-gj-eec" id="cGn-yM-L1e"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="refresh" id="kcq-i9-LxD">
+                                                <connections>
+                                                    <action selector="refresh:" destination="J9u-gj-eec" id="mmC-0n-38d"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oH1-7p-55z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="z0h-6c-a8g">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z0h-6c-a8g" id="H7y-NW-ePW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="l40-gf-4JG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="79.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="inU-C5-bYt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ie-7g-sju">
+                                                    <rect key="frame" x="115" y="11" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMm-Z9-1AL">
+                                                    <rect key="frame" x="115" y="44" width="32.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5ie-7g-sju" firstAttribute="leading" secondItem="l40-gf-4JG" secondAttribute="trailing" constant="35" id="0fg-x7-nKt"/>
+                                                <constraint firstItem="l40-gf-4JG" firstAttribute="top" secondItem="H7y-NW-ePW" secondAttribute="top" id="3jB-iO-RFr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wMm-Z9-1AL" secondAttribute="bottom" constant="4" id="BvA-y6-pmN"/>
+                                                <constraint firstItem="wMm-Z9-1AL" firstAttribute="leading" secondItem="l40-gf-4JG" secondAttribute="trailing" constant="35" id="a6Y-3a-wtc"/>
+                                                <constraint firstAttribute="bottom" secondItem="l40-gf-4JG" secondAttribute="bottom" id="edI-YF-5t0"/>
+                                                <constraint firstItem="5ie-7g-sju" firstAttribute="top" secondItem="H7y-NW-ePW" secondAttribute="topMargin" id="ewg-ZH-ahK"/>
+                                                <constraint firstItem="l40-gf-4JG" firstAttribute="leading" secondItem="H7y-NW-ePW" secondAttribute="leading" id="jQL-8H-NWS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oH1-7p-55z" firstAttribute="top" secondItem="NrZ-BP-NIQ" secondAttribute="bottom" id="9Ch-UO-hhr"/>
+                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="top" secondItem="oH1-7p-55z" secondAttribute="bottom" id="C6h-eA-CW1"/>
+                            <constraint firstItem="NrZ-BP-NIQ" firstAttribute="leading" secondItem="1WB-05-yaw" secondAttribute="leading" id="FTb-oM-9sh"/>
+                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="bottom" secondItem="1WB-05-yaw" secondAttribute="bottom" id="RgH-CJ-VP4"/>
+                            <constraint firstItem="NrZ-BP-NIQ" firstAttribute="top" secondItem="1WB-05-yaw" secondAttribute="top" id="UWt-Wq-XU8"/>
+                            <constraint firstItem="oH1-7p-55z" firstAttribute="leading" secondItem="1WB-05-yaw" secondAttribute="leading" id="Ul1-Nz-5fg"/>
+                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="trailing" secondItem="1WB-05-yaw" secondAttribute="trailing" id="WxK-fm-nse"/>
+                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="leading" secondItem="1WB-05-yaw" secondAttribute="leading" id="iIv-L9-I1N"/>
+                            <constraint firstItem="1WB-05-yaw" firstAttribute="trailing" secondItem="oH1-7p-55z" secondAttribute="trailing" id="k51-Z8-3SP"/>
+                            <constraint firstItem="NrZ-BP-NIQ" firstAttribute="trailing" secondItem="1WB-05-yaw" secondAttribute="trailing" id="sIG-Qc-ewb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1WB-05-yaw"/>
+                    </view>
+                    <connections>
+                        <outlet property="list" destination="r6S-zr-j3R" id="tSX-9Y-CID"/>
+                        <outlet property="tableView" destination="oH1-7p-55z" id="EI6-cx-9rq"/>
+                        <outlet property="toolbar" destination="k7E-Qv-KRs" id="vsM-bU-tNb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zY-Oe-1TM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="80.50974512743629"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
+    </resources>
+</document>

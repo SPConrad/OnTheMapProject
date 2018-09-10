@@ -69,9 +69,15 @@ class AddLocationViewController: ViewController {
     }
     
     @IBAction func findLocation(_ sender: Any) {
-        if let mapVc = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController {
-            mapVc.studentLocation = locations[0]
-            self.present(mapVc, animated: true, completion: nil)
+//        if let mapVc = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController {
+//            mapVc.studentLocation = locations[0]
+//            self.present(mapVc, animated: true, completion: nil)
+//        } else {
+//            print("whoops")
+//        }
+        if let listVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "LocationListViewController") as? LocationListViewController {
+            listVc.studentLocations = locations
+            self.present(listVc, animated: true, completion: nil)
         } else {
             print("whoops")
         }
