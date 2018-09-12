@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationListViewController: ViewController {
+class LocationListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var studentLocations: [Location]!
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,40 +30,15 @@ class LocationListViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        studentLocations = [Location]()
-        
-        self.view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = 80
-        NSLayoutConstraint.activate([
-//            tableView.topAnchor.constraint(equalTo: navbar.bottomAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: toolbar.topAnchor),
-            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
-            ])
+        if studentLocations == nil {
+            studentLocations = [Location]()
+        }
+        tableView.delegate = self
+        tableView.dataSource = self
         
     }
 
 
-    
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension LocationListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -76,4 +51,16 @@ extension LocationListViewController: UITableViewDataSource {
         
         return cell
     }
+
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
