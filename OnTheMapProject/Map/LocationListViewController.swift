@@ -9,36 +9,44 @@
 import UIKit
 
 class LocationListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var studentLocations: [Location]!
+    var students: [ParseLocation]!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    @IBOutlet weak var toolbar: UIToolbar!
+    
+    @IBOutlet weak var list: UIBarButtonItem!
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ParseClient.sharedInstance().getAllLocations(onSuccess: { (studentsLocation) in
+            self.students = studentsLocation
+        }, onFailure: { (error) in
+            
+        }, onComplete: {
+            self.tableView.reloadData()
+        })
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     
     
     @IBAction func logout(_ sender: Any) {
     }
     
-
+    
     @IBAction func add(_ sender: Any) {
     }
     
     @IBAction func refresh(_ sender: Any) {
     }
-    
-    @IBOutlet weak var toolbar: UIToolbar!
-    
-    @IBOutlet weak var list: UIBarButtonItem!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if studentLocations == nil {
-            studentLocations = [Location]()
-        }
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-    }
-
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -51,16 +59,5 @@ class LocationListViewController: UIViewController, UITableViewDataSource, UITab
         
         return cell
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

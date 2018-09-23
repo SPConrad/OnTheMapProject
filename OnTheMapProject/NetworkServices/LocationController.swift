@@ -38,6 +38,8 @@ class LocationController: LocationService {
                 return
             }
         }
+
+        
         task.resume()
     }
     

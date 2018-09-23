@@ -9,21 +9,22 @@
 import Foundation
 import MapKit
 
-struct Location { //: Codable {
-    var createdAt: String?
-    var firstName: String?
-    var lastName: String?
-    var latitude: Double?
-    var longitude: Double?
-    var mapString: String?
-    var mediaURL: String?
-    var objectId: String?
-    var uniqueKey: String?
-    var updatedAt: String?
+public struct ParseLocation: Codable {
     
-    init() {
-        
-    }
+    // MARK: Properties
+    
+    let createdAt: String?
+    let firstName: String?
+    let lastName: String?
+    let latitude: Double?
+    let longitude: Double?
+    let mapString: String?
+    let mediaURL: String?
+    let objectId: String?
+    let uniqueKey: String?
+    let updatedAt: String?
+    
+    // MARK: Initializers
     
     init(location: [String:AnyObject]) {
         createdAt = location["createdAt"] as? String ?? ""
@@ -38,22 +39,37 @@ struct Location { //: Codable {
         uniqueKey = location["uniqueKey"] as? String ?? ""
     }
     
-//    enum CodingKeys: String, CodingKey {
-//        case createdAt = "createdAt"
-//        case firstName = "firstName"
-//        case lastName = "lastName"
-//        case latitude = "latitude"
-//        case longitude = "longitude"
-//        case mapString = "mapString"
-//        case mediaURL = "mediaURL"
-//        case objectId = "objectId"
-//        case uniqueKey = "uniqueKey"
-//        case updatedAt = "updatedAt"
-//    }
-//
+    static func locationsFromResults(_ results: [[String:AnyObject]]) -> [ParseLocation] {
+        
+        var locations = [ParseLocation]()
+        
+        for result in results {
+            locations.append(ParseLocation(location: result))
+        }
+        
+        return locations        
+    }
     
+
+    enum CodingKeys: String, CodingKey {
+        case createdAt = "createdAt"
+        case firstName = "firstName"
+        case lastName = "lastName"
+        case latitude = "latitude"
+        case longitude = "longitude"
+        case mapString = "mapString"
+        case mediaURL = "mediaURL"
+        case objectId = "objectId"
+        case uniqueKey = "uniqueKey"
+        case updatedAt = "updatedAt"
+    }
+
     
+    public static func == (lhs: ParseLocation, rhs: ParseLocation) -> Bool {
+        return lhs.objectId == rhs.objectId
+    }
 }
+
 
 //extension Location {
 //    init(from decoder: Decoder) throws {

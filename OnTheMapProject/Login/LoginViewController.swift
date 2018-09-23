@@ -8,18 +8,20 @@
 
 import UIKit
 
-class LoginViewController: ViewController {
+class LoginViewController: UIViewController {
     
-    
-
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
+    
+    var authController: AuthenticationController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        authController = AuthenticationController()
         // Do any additional setup after loading the view.
     }
 
@@ -31,43 +33,21 @@ class LoginViewController: ViewController {
     @IBAction func loginButtonPress(_ sender: Any) {
         guard let username = emailTextField.text?.trimmingCharacters(in: .whitespaces), let password = passwordTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
         
+        sendLoginRequest(username: username, password: password)
+        
     }
-    
-    
     
     @IBAction func pressSignUpButton(_ sender: Any) {
         
     }
     
-    /*
-    private func authorize(qid: String, and password: String) {
-        factory?.service?.authenticate(with: qid, and: password) { [weak self] response, errorMsg in
-            if let errorMsg = errorMsg {
-                self?.handleAuthorizationFailure(errorMsg)
-            } else {
-                self?.handleAuthorizationSuccess(response)
-            }
-        }
-    }
-    */
-    
-    func sendLoginRequest() {
+    func sendLoginRequest(username: String, password: String) {
+        var response: String = ""
         
     }
-    
     func loginResponseHandler() {
         
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

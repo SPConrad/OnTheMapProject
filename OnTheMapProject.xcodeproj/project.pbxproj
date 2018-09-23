@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83299A9721530F1400348854 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83299A9621530F1400348854 /* ParseConstants.swift */; };
+		83299AA12153182100348854 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83299AA02153182100348854 /* Convenience.swift */; };
 		8332863621334ADB00D64C1A /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8332863521334ADB00D64C1A /* AuthenticationController.swift */; };
 		83328639213358A500D64C1A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83328638213358A500D64C1A /* AuthenticationService.swift */; };
 		83349AA8214725BC001D3302 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83349AA7214725BC001D3302 /* LocationListViewController.swift */; };
@@ -16,7 +18,11 @@
 		83A6CDF7212A1FAE0001373F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6CDF6212A1FAE0001373F /* MapViewController.swift */; };
 		83A6CDF9212A1FBF0001373F /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6CDF8212A1FBF0001373F /* AddLocationViewController.swift */; };
 		83A6CDFB212A208E0001373F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6CDFA212A208E0001373F /* LoginViewController.swift */; };
-		83C4A7E4212E354000F6B94E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4A7E3212E354000F6B94E /* Location.swift */; };
+		83AA1A022156E913001D33E1 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA1A012156E913001D33E1 /* ParseClient.swift */; };
+		83AA1A072156ECE3001D33E1 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA1A062156ECE3001D33E1 /* UdacityConstants.swift */; };
+		83AA1A092156F207001D33E1 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA1A082156F207001D33E1 /* UdacityClient.swift */; };
+		83AA1A0B215703E8001D33E1 /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA1A0A215703E8001D33E1 /* ParseConvenience.swift */; };
+		83C4A7E4212E354000F6B94E /* ParseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4A7E3212E354000F6B94E /* ParseLocation.swift */; };
 		83CF649E2124E4A700DAD14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CF649D2124E4A700DAD14A /* AppDelegate.swift */; };
 		83CF64A02124E4A700DAD14A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CF649F2124E4A700DAD14A /* ViewController.swift */; };
 		83CF64A52124E4A900DAD14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64A42124E4A900DAD14A /* Assets.xcassets */; };
@@ -30,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83299A9621530F1400348854 /* ParseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
+		83299AA02153182100348854 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		8332863521334ADB00D64C1A /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		83328638213358A500D64C1A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		83349AA7214725BC001D3302 /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +47,11 @@
 		83A6CDF6212A1FAE0001373F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		83A6CDF8212A1FBF0001373F /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		83A6CDFA212A208E0001373F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		83C4A7E3212E354000F6B94E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		83AA1A012156E913001D33E1 /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		83AA1A062156ECE3001D33E1 /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		83AA1A082156F207001D33E1 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		83AA1A0A215703E8001D33E1 /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
+		83C4A7E3212E354000F6B94E /* ParseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseLocation.swift; sourceTree = "<group>"; };
 		83CF649A2124E4A700DAD14A /* OnTheMapProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMapProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CF649D2124E4A700DAD14A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83CF649F2124E4A700DAD14A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83299A9A2153178500348854 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83AA1A032156EC84001D33E1 /* Clients */,
+				83299AA02153182100348854 /* Convenience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8332863421334A6800D64C1A /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +102,35 @@
 				83702AAE21399B0A00418262 /* LocationService.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		83AA1A032156EC84001D33E1 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				83AA1A052156ECD8001D33E1 /* Udacity */,
+				83AA1A042156EC8B001D33E1 /* Parse */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		83AA1A042156EC8B001D33E1 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				83AA1A012156E913001D33E1 /* ParseClient.swift */,
+				83299A9621530F1400348854 /* ParseConstants.swift */,
+				83AA1A0A215703E8001D33E1 /* ParseConvenience.swift */,
+				83C4A7E3212E354000F6B94E /* ParseLocation.swift */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		83AA1A052156ECD8001D33E1 /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				83AA1A062156ECE3001D33E1 /* UdacityConstants.swift */,
+				83AA1A082156F207001D33E1 /* UdacityClient.swift */,
+			);
+			path = Udacity;
 			sourceTree = "<group>";
 		};
 		83CF64912124E4A700DAD14A = {
@@ -102,7 +152,7 @@
 		83CF649C2124E4A700DAD14A /* OnTheMapProject */ = {
 			isa = PBXGroup;
 			children = (
-				83C4A7E3212E354000F6B94E /* Location.swift */,
+				83299A9A2153178500348854 /* Model */,
 				833286372133589500D64C1A /* Protocols */,
 				8332863421334A6800D64C1A /* NetworkServices */,
 				83CF64B5212523C700DAD14A /* AddLocation */,
@@ -228,13 +278,19 @@
 				83FC44D721443EE4006777C6 /* JSON.swift in Sources */,
 				83A6CDF7212A1FAE0001373F /* MapViewController.swift in Sources */,
 				83328639213358A500D64C1A /* AuthenticationService.swift in Sources */,
+				83AA1A072156ECE3001D33E1 /* UdacityConstants.swift in Sources */,
 				83CF649E2124E4A700DAD14A /* AppDelegate.swift in Sources */,
 				83A6CDFB212A208E0001373F /* LoginViewController.swift in Sources */,
 				83702AAF21399B0A00418262 /* LocationService.swift in Sources */,
-				83C4A7E4212E354000F6B94E /* Location.swift in Sources */,
+				83AA1A0B215703E8001D33E1 /* ParseConvenience.swift in Sources */,
+				83AA1A092156F207001D33E1 /* UdacityClient.swift in Sources */,
+				83C4A7E4212E354000F6B94E /* ParseLocation.swift in Sources */,
 				83A6CDF9212A1FBF0001373F /* AddLocationViewController.swift in Sources */,
 				83702AAD21399AFA00418262 /* LocationController.swift in Sources */,
 				83FC44DD2145ADD6006777C6 /* StudentLocationCell.swift in Sources */,
+				83AA1A022156E913001D33E1 /* ParseClient.swift in Sources */,
+				83299A9721530F1400348854 /* ParseConstants.swift in Sources */,
+				83299AA12153182100348854 /* Convenience.swift in Sources */,
 				8332863621334ADB00D64C1A /* AuthenticationController.swift in Sources */,
 				83349AA8214725BC001D3302 /* LocationListViewController.swift in Sources */,
 			);

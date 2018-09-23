@@ -14,18 +14,18 @@ class MapViewController: ViewController {
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var navbar: UINavigationBar!
     
-    var studentLocations: [Location]!
-    var studentLocation: Location?
+    var studentLocations: [ParseLocation]!
+    var studentLocation: ParseLocation?
     let regionRadius: CLLocationDistance = 1000
     var mapPoint: MKMapPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        studentLocations = [Location]()
+        studentLocations = [ParseLocation]()
+        layoutMapView()
     }
     
     func layoutMapView() {
-        mapView = MKMapView()
         self.view.addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

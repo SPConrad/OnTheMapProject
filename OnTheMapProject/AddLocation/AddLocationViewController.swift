@@ -26,7 +26,7 @@ let sample: [String:AnyObject] =
 class AddLocationViewController: ViewController {
     
     var locationController: LocationController!
-    var locations: [Location]!
+    var locations: [ParseLocation]!
     
     @IBOutlet weak var namedLocationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
@@ -36,8 +36,8 @@ class AddLocationViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationController = LocationController()
-        locations = [Location]()
-        locations.append(Location(location: sample))
+        locations = [ParseLocation]()
+        locations.append(ParseLocation(location: sample))
         // Do any additional setup after loading the view.
     }
     
@@ -52,7 +52,7 @@ class AddLocationViewController: ViewController {
             //print(parsedResult["results"])
             if let results = try? parsedData["results"] as? [[String:AnyObject]] {
                 for result in results! {
-                    self.locations.append(Location(location: result))
+                    self.locations.append(ParseLocation(location: result))
                 }
             }
             print("hello world")
@@ -76,7 +76,7 @@ class AddLocationViewController: ViewController {
 //            print("whoops")
 //        }
         if let listVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "LocationListViewController") as? LocationListViewController {
-            listVc.studentLocations = locations
+            listVc.students = locations
             self.present(listVc, animated: true, completion: nil)
         } else {
             print("whoops")
