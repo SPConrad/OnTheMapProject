@@ -8,20 +8,21 @@
 
 import UIKit
 import MapKit
-class MapViewController: ViewController {
+
+class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var navbar: UINavigationBar!
     
-    var studentLocations: [ParseLocation]!
-    var studentLocation: ParseLocation?
+    var studentLocations: [Student]!
+    var studentLocation: Student?
     let regionRadius: CLLocationDistance = 1000
     var mapPoint: MKMapPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        studentLocations = [ParseLocation]()
+        studentLocations = [Student]()
         layoutMapView()
     }
     
@@ -66,16 +67,5 @@ class MapViewController: ViewController {
     @IBAction func logout(_ sender: Any) {
         
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

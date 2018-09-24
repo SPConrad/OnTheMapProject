@@ -12,13 +12,15 @@ extension UdacityClient {
     
     // MARK: UDACITY
     struct Constants {
-        static let ApiScheme = "https"
+        static let ApiScheme = "https://"
         static let ApiHost = "www.udacity.com"
         static let ApiPath = "/api"
+        static let BaseUrl = "https://www.udacity.com"
     }
     
     // MARK: Udacity Parameter Keys
     struct ParameterKeys {
+        static let Users = "/users"
         static let Udacity = "udacity"
         static let Username = "Username"
         static let Password = "Password"

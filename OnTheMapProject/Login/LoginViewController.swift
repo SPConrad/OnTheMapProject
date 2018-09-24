@@ -10,18 +10,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
     
-    var authController: AuthenticationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        authController = AuthenticationController()
         // Do any additional setup after loading the view.
     }
 

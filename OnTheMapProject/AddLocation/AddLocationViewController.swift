@@ -8,25 +8,9 @@
 
 import UIKit
 
-let sample: [String:AnyObject] =
-    [
-        "objectId": "abc123" as AnyObject,
-        "uniqueKey": "11iudda03" as AnyObject,
-        "firstName": "Sean" as AnyObject,
-        "lastName": "Conrad" as AnyObject,
-        "mapString": "http://www.google.com" as AnyObject,
-        "mediaUrl": "http://www.google.com" as AnyObject,
-        "latitude": 35.995649 as AnyObject,
-        "longitude": -78.901753 as AnyObject,
-        "createdAt": "" as AnyObject,
-        "updatedAt": "" as AnyObject
-    ]
-
-
-class AddLocationViewController: ViewController {
+class AddLocationViewController: UIViewController {
     
-    var locationController: LocationController!
-    var locations: [ParseLocation]!
+    var locations: [Student]!
     
     @IBOutlet weak var namedLocationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
@@ -35,9 +19,7 @@ class AddLocationViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationController = LocationController()
-        locations = [ParseLocation]()
-        locations.append(ParseLocation(location: sample))
+        locations = [Student]()
         // Do any additional setup after loading the view.
     }
     
@@ -45,19 +27,7 @@ class AddLocationViewController: ViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func getAllLocations() {
-        locationController.getLocations(completion: { responseData in
-            let parsedData = JSON.deserialize(data: responseData)
-            //print(parsedResult["results"])
-            if let results = try? parsedData["results"] as? [[String:AnyObject]] {
-                for result in results! {
-                    self.locations.append(ParseLocation(location: result))
-                }
-            }
-            print("hello world")
-        })
-    }
+
     private func dismissKeyboard() {
         namedLocationTextField.resignFirstResponder()
         urlTextField.resignFirstResponder()
@@ -75,8 +45,7 @@ class AddLocationViewController: ViewController {
 //        } else {
 //            print("whoops")
 //        }
-        if let listVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "LocationListViewController") as? LocationListViewController {
-            listVc.students = locations
+        if let listVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "LocationListViewController") as? StudentListViewController {
             self.present(listVc, animated: true, completion: nil)
         } else {
             print("whoops")

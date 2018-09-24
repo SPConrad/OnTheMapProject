@@ -8,23 +8,25 @@
 
 import UIKit
 
-class LocationListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var students: [ParseLocation]!
+class StudentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var students: [Student]!
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
     @IBOutlet weak var toolbar: UIToolbar!
-    
     @IBOutlet weak var list: UIBarButtonItem!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        ParseClient.sharedInstance().getAllLocations(onSuccess: { (studentsLocation) in
-            self.students = studentsLocation
+        students = [Student]()
+        getStudents()
+        tableView.reloadData()
+    }
+    
+    func getStudents() {
+        ParseClient.sharedInstance().getStudentLocations(onSuccess: { (students) in
+            self.students = students
         }, onFailure: { (error) in
-            
+            print("error")
         }, onComplete: {
             self.tableView.reloadData()
         })
@@ -36,26 +38,27 @@ class LocationListViewController: UIViewController, UITableViewDataSource, UITab
         tableView.dataSource = self
     }
     
-    
-    
     @IBAction func logout(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func add(_ sender: Any) {
+        
     }
     
     @IBAction func refresh(_ sender: Any) {
+        getStudents()
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return students.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationCell", for: indexPath) as! StudentLocationCell
-        cell.urlLabel.text = "Hello URL"
-        cell.nameLabel.text = "Sean Conrad"
-        // Configure the cell...
+        let student = students?[(indexPath as NSIndexPath).row]
+        cell.urlLabel.text = student?.mediaURL
+        cell.nameLabel.text = student?.firstName
         
         return cell
     }

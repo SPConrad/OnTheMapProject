@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Convenience {
+class Convenience: NSObject {
     
     func substituteKeyInMethod(_ method: String, key: String, value: String) -> String? {
         if method.range(of: "{\(key)}") != nil {

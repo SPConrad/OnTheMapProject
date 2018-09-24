@@ -7,101 +7,7 @@
 //
 
 import Foundation
-
 class ParseClient: NSObject {
-    
-    var session = URLSession.shared
-    
-    override init() {
-        super.init()
-        
-        
-    }
-    
-    func taskForGETMethod(_ method: String,_ parameters: [String:AnyObject],
-                          onSuccess: @escaping (_ data: Data) -> Void,
-                          onFailure: @escaping (_ error: NSError) -> Void,
-                          onComplete: @escaping () -> Void) {
-        
-        // 1. Set parameters
-        var parametersWithApiKey = parameters
-        parametersWithApiKey[ParameterKeys.ApiKey] = Constants.ApiKey as AnyObject
-        
-        // 2/3. Build the URL, Configure request
-        let request = NSMutableURLRequest(url: urlFromParameters(parametersWithApiKey, withPathExtension: method))
-
-        setHttpHeaders(request)
-        
-        // 4. Make the request
-        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            
-            func sendError(_ error: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey : error]
-                onFailure(NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
-            }
-            
-            /* GUARD: Was there an error? */
-            guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
-                return
-            }
-            
-            /* GUARD: Did we get a successful 2XX response? */
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
-                return
-            }
-            
-            /* GUARD: Was there any data returned? */
-            if let data = data {
-               onSuccess(data)
-            }
-            
-            onComplete()
-            
-            /* 5/6. Parse the data and use the data (happens in completion handler) */
-            //self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
-        }
-        
-        /* 7. Start the request */
-        task.resume()
-    }
-    
-    
-//    // given raw JSON, return a usable Foundation object
-//    private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
-//
-//        var parsedResult: AnyObject! = nil
-//        do {
-//            let parsedResult = JSON.deserialize(data: data)//try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
-//        } catch {
-//            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
-//            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
-//        }
-//
-//        completionHandlerForConvertData(parsedResult, nil)
-//    }
-//
-    private func setHttpHeaders(_ urlRequest: NSMutableURLRequest){
-        urlRequest.setValue(ParameterKeys.AppId, forHTTPHeaderField: Constants.AppId)
-        urlRequest.setValue(ParameterKeys.ApiKey, forHTTPHeaderField: Constants.ApiKey)
-    }
-    
-    private func urlFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
-        
-        var components = URLComponents()
-        components.scheme = ParseClient.Constants.ApiScheme
-        components.host = ParseClient.Constants.ApiHost
-        components.path = ParseClient.Constants.ApiPath + (withPathExtension ?? "")
-        components.queryItems = [URLQueryItem]()
-        
-        for (key, value) in parameters {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.queryItems!.append(queryItem)
-        }
-        return components.url!
-    }
     
     class func sharedInstance() -> ParseClient {
         struct Singleton {
@@ -109,19 +15,141 @@ class ParseClient: NSObject {
         }
         return Singleton.sharedInstance
     }
+    
+    var session = URLSession.shared
+    
+    override init() {
+        super.init()
+    }
+    
+    func getStudentLocations(onSuccess: @escaping (_ students: [Student]) -> Void,
+                             onFailure: @escaping (_ error: String) -> Void,
+                             onComplete: @escaping ()-> Void) {
+        
+        let url = URLBuilder.studentLocationUrl()
+
+        
+        request(method: "GET", url: url, onSuccess: { (data) in
+            let parsedResults = JSON.deserialize(data: data)
+            if let results = parsedResults["results"] as? [[String:AnyObject]] {
+                var students: [Student] = [Student]()
+                
+                for student in results {
+                    students.append(Student(student: student))
+                }
+                onSuccess(students)
+            }
+        }, onFailure: { (error) in
+            onFailure("error")
+        }, onCompleted: {
+            onComplete()
+        })
+    }
+    
+    func postStudentLocation(newStudent: Student, onSuccess: @escaping (_ response: [[String:AnyObject]]) -> Void,
+                             onFailure: @escaping (_ error: String) -> Void,
+                             onComplete: @escaping ()-> Void) {
+        let id = 0
+        let firstName = "Sean"
+        let lastName = "Conrad"
+        let mapString = "Durham, NC"
+        let mediaUrl = "https://www.google.com"
+        let latitude = 0.00
+        let longitude = 0.00
+        let url = URLBuilder.studentLocationUrl()
+        
+        let parameters = [
+            "uniqueKey": id,
+            "firstName": firstName,
+            "lastName": lastName,
+            "mapString": mapString,
+            "mediaURL": mediaUrl,
+            "latitude": latitude,
+            "longitude": longitude
+            ] as [String:AnyObject]
+        
+        /* Response:
+         {
+         "createdAt":"2015-03-11T02:48:18.321Z",
+         "objectId":"CDHfAy8sdp"
+         }
+         */
+        
+        
+        
+        request(method: "POST", url: url, parameters: parameters, onSuccess: { (data) in
+            let parsedResults = JSON.deserialize(data: data)
+            if let results = parsedResults["results"] as? [[String:AnyObject]] {
+                
+                onSuccess(results)
+            }
+        }, onFailure: { (error) in
+            onFailure("error")
+        }, onCompleted: {
+            onComplete()
+        })
+    }
+    
+    func request(method: String, url: String, parameters: [String: Any]? = nil, headers: [String: String]? = nil,
+                 onSuccess: @escaping (_ data: Data) -> Void,
+                 onFailure: @escaping (_ error: String) -> Void,
+                 onCompleted: @escaping ()-> Void) {
+        
+        let encodeUrl = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let request = NSMutableURLRequest(url: URL(string: encodeUrl!)!)
+        
+        request.httpMethod = method
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(Constants.AppId, forHTTPHeaderField: ParameterKeys.AppId)
+        request.addValue(Constants.ApiKey, forHTTPHeaderField: ParameterKeys.ApiKey)
+        
+        if let headers = headers{
+            for header in headers {
+                request.addValue(header.value, forHTTPHeaderField: header.key)
+            }
+        }
+        
+        if let parameters = parameters {
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            } catch {
+                onFailure("Unexpected error")
+                onCompleted()
+            }
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            
+            guard (error == nil) else {
+                onFailure("Unexpected error")
+                
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                
+                if let data = data {
+                    let newData = data.subdata(in: Range(uncheckedBounds: (5, data.count)))
+                    let parsedResult = JSON.deserialize(data: newData) as? [String:AnyObject]
+                    onFailure("Unexpected error")
+                } else {
+                    onFailure("Unexpected error")
+                }
+                
+                return
+            }
+            
+            if let data = data {
+                onSuccess(data)
+            }
+            
+            onCompleted()
+            
+        }
+        
+        task.resume()
+    }
+    
 }
-
-
-//func getLocations(completion: @escaping (_ responseData: Data) -> Void) {
-//    var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=50")!)
-//    request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-//    request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
-//    let session = URLSession.shared
-//    let task = session.dataTask(with: request) { data, response, error in
-//        if data != nil { // Handle error...
-//            completion(data!)
-//            return
-//        }
-//    }
-//    task.resume()
-//}
