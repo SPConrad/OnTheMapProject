@@ -16,7 +16,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var navBar: UINavigationBar!
     
     var students: [Student]!
-    var student: Student?
+    var selectedStudent: Student?
     let regionRadius: CLLocationDistance = 10000000
     var mapPoint: MKMapPoint?
     
@@ -28,7 +28,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mapView.delegate = self
-        getStudents()
+        if (selectedStudent != nil) {
+            
+        }
+        else {
+            getStudents()
+        }
     }
     
     public func getStudents()  {
@@ -40,7 +45,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }, onComplete: {
             print("on complete")
             DispatchQueue.main.async {
-                self.student = self.students[0]
                 self.layoutMapView()
             }
         })
@@ -56,6 +60,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 addPin(location: newLocation, title: student.fullName())
             }
         }
+    }
+    
+    func displaySingleStudent(_ student: Student) {
+        print("display selected student")
     }
     
     func addPin(location: CLLocationCoordinate2D, title: String) {

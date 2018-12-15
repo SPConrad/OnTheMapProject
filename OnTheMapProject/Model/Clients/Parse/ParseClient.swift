@@ -49,24 +49,19 @@ class ParseClient: NSObject {
     func postStudentLocation(newStudent: Student, _ onComplete: ((_ error: String?) -> Void)?) {
 
         let id = 0
-        let url = URLBuilder.studentLocationUrl()
+//        let url = URLBuilder.studentLocationUrl()
+//
+//        let parameters = [
+//            "uniqueKey": id as AnyObject,
+//            "firstName": newStudent.firstName as AnyObject,
+//            "lastName": newStudent.lastName as AnyObject,
+//            "mapString": "" as AnyObject,
+//            "mediaURL": newStudent.mediaURL as AnyObject,
+//            "latitude": newStudent.latitude as AnyObject,
+//            "longitude": newStudent.longitude as AnyObject
+//            ] as [String:AnyObject]
 
-        let parameters = [
-            "uniqueKey": id as AnyObject, 
-            "firstName": newStudent.firstName as AnyObject,
-            "lastName": newStudent.lastName as AnyObject,
-            "mapString": "" as AnyObject,
-            "mediaURL": newStudent.mediaURL as AnyObject,
-            "latitude": newStudent.latitude as AnyObject,
-            "longitude": newStudent.longitude as AnyObject
-            ] as [String:AnyObject]
 
-        /* Response:
-         {
-         "createdAt":"2015-03-11T02:48:18.321Z",
-         "objectId":"CDHfAy8sdp"
-         }
-         */
         let uniqueKey = UdacityClient.sharedInstance().loggedInUser?.key
         let bodyString = "{\n  \"uniqueKey\" : \"\(String(describing: uniqueKey))\",\n  \"firstName\" : \"S\",\n  \"mapString\" : \"Durham, NC\",\n  \"mediaURL\" : \"http:\\/\\/google.com\",\n  \"lastName\" : \"C\",\n  \"longitude\" : -78.899108999999996,\n  \"latitude\" : 35.995930"
         

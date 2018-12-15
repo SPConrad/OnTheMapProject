@@ -49,6 +49,16 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedStudent = students?[(indexPath as NSIndexPath).row]
+        self.tabBarController?.selectedIndex = 1
+        guard let map = self.tabBarController?.childViewControllers[1] as? MapViewController else {
+            print("that didn't work")
+            return
+        }
+        map.displaySingleStudent(selectedStudent!)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return students != nil ? students.count : 0
     }
@@ -61,5 +71,7 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
         
         return cell
     }
+    
+    
 
 }
