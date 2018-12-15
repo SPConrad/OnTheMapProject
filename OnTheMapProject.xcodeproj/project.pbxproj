@@ -11,6 +11,8 @@
 		83299AA12153182100348854 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83299AA02153182100348854 /* Convenience.swift */; };
 		83349AA8214725BC001D3302 /* StudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83349AA7214725BC001D3302 /* StudentListViewController.swift */; };
 		83349AAA214728B3001D3302 /* LocationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83349AA9214728B3001D3302 /* LocationList.storyboard */; };
+		8370031521B48C03009AB20B /* UdacityStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370031421B48C03009AB20B /* UdacityStudent.swift */; };
+		837EEAC321A0C15600E1FEAE /* StudentListTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837EEAC221A0C15600E1FEAE /* StudentListTabBarViewController.swift */; };
 		83A6CDF7212A1FAE0001373F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6CDF6212A1FAE0001373F /* MapViewController.swift */; };
 		83AA1A022156E913001D33E1 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA1A012156E913001D33E1 /* ParseClient.swift */; };
 		83AA1A072156ECE3001D33E1 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA1A062156ECE3001D33E1 /* UdacityConstants.swift */; };
@@ -26,7 +28,6 @@
 		83CF649E2124E4A700DAD14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CF649D2124E4A700DAD14A /* AppDelegate.swift */; };
 		83CF64A52124E4A900DAD14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64A42124E4A900DAD14A /* Assets.xcassets */; };
 		83CF64A82124E4A900DAD14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64A62124E4A900DAD14A /* LaunchScreen.storyboard */; };
-		83CF64B421251D9500DAD14A /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CF64B321251D9500DAD14A /* Map.storyboard */; };
 		83FC44D721443EE4006777C6 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC44D621443EE4006777C6 /* JSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,8 @@
 		83299AA02153182100348854 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		83349AA7214725BC001D3302 /* StudentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListViewController.swift; sourceTree = "<group>"; };
 		83349AA9214728B3001D3302 /* LocationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationList.storyboard; sourceTree = "<group>"; };
+		8370031421B48C03009AB20B /* UdacityStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityStudent.swift; sourceTree = "<group>"; };
+		837EEAC221A0C15600E1FEAE /* StudentListTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListTabBarViewController.swift; sourceTree = "<group>"; };
 		83A6CDF6212A1FAE0001373F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		83AA1A012156E913001D33E1 /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		83AA1A062156ECE3001D33E1 /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		83CF64A42124E4A900DAD14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83CF64A72124E4A900DAD14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83CF64A92124E4A900DAD14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83CF64B321251D9500DAD14A /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		83FC44D621443EE4006777C6 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 			children = (
 				83AA1A062156ECE3001D33E1 /* UdacityConstants.swift */,
 				83AA1A082156F207001D33E1 /* UdacityClient.swift */,
+				8370031421B48C03009AB20B /* UdacityStudent.swift */,
 			);
 			path = Udacity;
 			sourceTree = "<group>";
@@ -109,8 +112,6 @@
 		83AA1A1521584479001D33E1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				83A6CDF6212A1FAE0001373F /* MapViewController.swift */,
-				83CF64B321251D9500DAD14A /* Map.storyboard */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -119,7 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				83349AA7214725BC001D3302 /* StudentListViewController.swift */,
+				83A6CDF6212A1FAE0001373F /* MapViewController.swift */,
 				83349AA9214728B3001D3302 /* LocationList.storyboard */,
+				837EEAC221A0C15600E1FEAE /* StudentListTabBarViewController.swift */,
 			);
 			path = StudentList;
 			sourceTree = "<group>";
@@ -239,7 +242,6 @@
 				83CF64A82124E4A900DAD14A /* LaunchScreen.storyboard in Resources */,
 				83AA1A212158460B001D33E1 /* Main.storyboard in Resources */,
 				83CF64A52124E4A900DAD14A /* Assets.xcassets in Resources */,
-				83CF64B421251D9500DAD14A /* Map.storyboard in Resources */,
 				83349AAA214728B3001D3302 /* LocationList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,8 +265,10 @@
 				83AA1A022156E913001D33E1 /* ParseClient.swift in Sources */,
 				83299A9721530F1400348854 /* ParseConstants.swift in Sources */,
 				83299AA12153182100348854 /* Convenience.swift in Sources */,
+				8370031521B48C03009AB20B /* UdacityStudent.swift in Sources */,
 				83AA1A222158460B001D33E1 /* LoginViewController.swift in Sources */,
 				83AA1A1D215845FD001D33E1 /* AddLocationViewController.swift in Sources */,
+				837EEAC321A0C15600E1FEAE /* StudentListTabBarViewController.swift in Sources */,
 				83349AA8214725BC001D3302 /* StudentListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

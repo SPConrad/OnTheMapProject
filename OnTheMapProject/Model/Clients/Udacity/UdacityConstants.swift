@@ -13,9 +13,9 @@ extension UdacityClient {
     // MARK: UDACITY
     struct Constants {
         static let ApiScheme = "https://"
-        static let ApiHost = "www.udacity.com"
-        static let ApiPath = "/api"
-        static let BaseUrl = "https://www.udacity.com"
+        static let ApiHost = "onthemap-api.udacity.com"
+        static let ApiPath = "/v1"
+        static let BaseUrl = ApiScheme + ApiHost + ApiPath
     }
     
     // MARK: Udacity Parameter Keys

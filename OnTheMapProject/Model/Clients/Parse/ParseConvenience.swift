@@ -9,6 +9,12 @@
 import UIKit
 import Foundation
 
+class ParseConvenience: NSObject {
+    
+    
+    
+}
+
 extension ParseClient {
     
     // MARK: GET Convenience Methods

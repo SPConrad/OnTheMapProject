@@ -28,8 +28,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPress(_ sender: Any) {
+//        if let listTbVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "StudentListTabBarViewController") as? StudentListTabBarViewController {
+//            listTbVc.configure(.list)
+//            self.present(listTbVc, animated: true, completion: nil)
+//        } else {
+//            print("Whoops")
+//        }
+//
+
         guard let username = emailTextField.text?.trimmingCharacters(in: .whitespaces), let password = passwordTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
-        
+
         sendLoginRequest(username: username, password: password)
         
     }
@@ -39,10 +47,20 @@ class LoginViewController: UIViewController {
     }
     
     func sendLoginRequest(username: String, password: String) {
-        var response: String = ""
+        UdacityClient.sharedInstance().postSession(username: username, password: password, { (error) -> Void in
+            DispatchQueue.main.async {
+                if let listTbVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "StudentListTabBarViewController") as? StudentListTabBarViewController {
+                    listTbVc.configure(.list)
+                    self.present(listTbVc, animated: true, completion: nil)
+                } else {
+                    print("Whoops")
+                }
         
-    }
-    func loginResponseHandler() {
+            }
+            if let error = error {
+                print("Error: \(error)")
+            }
+        })
         
     }
     

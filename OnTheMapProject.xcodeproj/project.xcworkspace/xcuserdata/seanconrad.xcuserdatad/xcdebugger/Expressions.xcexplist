@@ -3,21 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in AddLocationViewController.findLocation(_:):AddLocationViewController.swift">
+         contextName = "closure #1 in ParseClient.request(method:url:parameters:headers:onSuccess:onFailure:onCompleted:):ParseClient.swift">
          <PersistentStrings>
             <PersistentString
-               value = "parsedData[&quot;results&quot;]">
-            </PersistentString>
-            <PersistentString
-               value = "locations">
+               value = "response as? HTTPURLResponse">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AddLocationViewController.findLocation(_:):AddLocationViewController.swift">
+         contextName = "ParseClient.request(method:url:parameters:headers:onSuccess:onFailure:onCompleted:):ParseClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ParseClient.postStudentLocation(newStudent:onSuccess:onFailure:onComplete:):ParseClient.swift">
          <PersistentStrings>
             <PersistentString
-               value = "response">
+               value = "JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -32,6 +32,107 @@
             </PersistentString>
             <PersistentString
                value = "error != nil">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ParseClient.postStudentLocation(student:completionHandlerForPost:):ParseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.body">
+            </PersistentString>
+            <PersistentString
+               value = "response.debugDescription">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MapViewController.centerMapOnLocation(location:):MapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in AddLocationViewController.confirmAddLocationPressed():AddLocationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "result">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ParseClient.performRequest(_:completionBlock:):ParseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "JSONSerialization.jsonObject(with: processedData, options: []) as! [String:AnyObject]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UdacityClient.assignLoggedInUser(_:):UdacityClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MapViewController.viewDidLoad():MapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddLocationViewController.findLocation(_:):AddLocationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AddLocationViewController.findLocation(_:):AddLocationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "placemark.location">
+            </PersistentString>
+            <PersistentString
+               value = "placemark.location?">
+            </PersistentString>
+            <PersistentString
+               value = "self.mapPoint">
+            </PersistentString>
+            <PersistentString
+               value = "placemarks">
+            </PersistentString>
+            <PersistentString
+               value = "placemark.location?.coordinate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StudentListTabBarViewController.configure(_:):StudentListTabBarViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "self.viewControllers![0] as! StudentListViewController ">
+            </PersistentString>
+            <PersistentString
+               value = "self.students">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ParseClient.performRequest(_:completionBlock:):ParseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.url">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

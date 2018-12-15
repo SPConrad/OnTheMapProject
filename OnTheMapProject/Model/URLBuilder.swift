@@ -11,11 +11,11 @@ import Foundation
 class URLBuilder: NSObject {
     
     class func authUrl() -> String {
-        return UdacityClient.Constants.BaseUrl + "/api/session"
+        return UdacityClient.Constants.BaseUrl + "/session"
     }
     
-    class func userInformationUrl(key: String) -> String {
-        return UdacityClient.Constants.BaseUrl + "/api/users/\(key)"
+    class func userInformationUrl(id: String) -> String {
+        return UdacityClient.Constants.BaseUrl + "/users/\(id)"
     }
     
     class func studentLocationUrl() -> String {
@@ -23,3 +23,11 @@ class URLBuilder: NSObject {
     }
     
 }
+
+
+
+/*For POSTing and DELETEing a session, change https://www.udacity.com/api/session to https://onthemap-api.udacity.com/v1/session.
+ 
+ For GETting public user data, change https://www.udacity.com/api/users/< user_id > to https://onthemap-api.udacity.com/v1/users/< user_id >.
+ 
+ */

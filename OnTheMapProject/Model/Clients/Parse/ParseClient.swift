@@ -46,48 +46,109 @@ class ParseClient: NSObject {
         })
     }
     
-    func postStudentLocation(newStudent: Student, onSuccess: @escaping (_ response: [[String:AnyObject]]) -> Void,
-                             onFailure: @escaping (_ error: String) -> Void,
-                             onComplete: @escaping ()-> Void) {
+    func postStudentLocation(newStudent: Student, _ onComplete: ((_ error: String?) -> Void)?) {
+
         let id = 0
-        let firstName = "Sean"
-        let lastName = "Conrad"
-        let mapString = "Durham, NC"
-        let mediaUrl = "https://www.google.com"
-        let latitude = 0.00
-        let longitude = 0.00
         let url = URLBuilder.studentLocationUrl()
-        
+
         let parameters = [
-            "uniqueKey": id,
-            "firstName": firstName,
-            "lastName": lastName,
-            "mapString": mapString,
-            "mediaURL": mediaUrl,
-            "latitude": latitude,
-            "longitude": longitude
+            "uniqueKey": id as AnyObject, 
+            "firstName": newStudent.firstName as AnyObject,
+            "lastName": newStudent.lastName as AnyObject,
+            "mapString": "" as AnyObject,
+            "mediaURL": newStudent.mediaURL as AnyObject,
+            "latitude": newStudent.latitude as AnyObject,
+            "longitude": newStudent.longitude as AnyObject
             ] as [String:AnyObject]
-        
+
         /* Response:
          {
          "createdAt":"2015-03-11T02:48:18.321Z",
          "objectId":"CDHfAy8sdp"
          }
          */
+        let uniqueKey = UdacityClient.sharedInstance().loggedInUser?.key
+        let bodyString = "{\n  \"uniqueKey\" : \"\(String(describing: uniqueKey))\",\n  \"firstName\" : \"S\",\n  \"mapString\" : \"Durham, NC\",\n  \"mediaURL\" : \"http:\\/\\/google.com\",\n  \"lastName\" : \"C\",\n  \"longitude\" : -78.899108999999996,\n  \"latitude\" : 35.995930"
         
         
+        let urlString = UdacityClient.Constants.BaseUrl + "parse/classes/StudentLocation"
+        var makeRequest: URLRequest = baseURLRequest(with: urlString)
         
-        request(method: "POST", url: url, parameters: parameters, onSuccess: { (data) in
-            let parsedResults = JSON.deserialize(data: data)
-            if let results = parsedResults["results"] as? [[String:AnyObject]] {
-                
-                onSuccess(results)
+        makeRequest.httpMethod = "POST"
+        makeRequest.httpBody = bodyString.data(using: String.Encoding.utf8)
+        
+        performRequest(makeRequest) { (jsonResponse, error) in
+            
+            guard error == nil else {
+                onComplete?(error)
+                return
             }
-        }, onFailure: { (error) in
-            onFailure("error")
-        }, onCompleted: {
-            onComplete()
-        })
+            
+            guard (jsonResponse!["objectId"] as? String) != nil else {
+                print("Invalid response")
+                onComplete?("Invalid response")
+                return
+            }
+            
+            onComplete?(nil)
+        }
+        
+    }
+    
+    func performRequest(_ request: URLRequest, completionBlock: ((_ result: AnyObject?, _ error: String?) -> Void)?) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            guard error == nil else {
+                print("There was an error with your request")
+                completionBlock?(nil, "There was an error with your request")
+                return
+            }
+            
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            
+            if statusCode == 403 {
+                print("Wrong credentials")
+                completionBlock?(nil, "Username or password incorrect")
+                return
+            }
+            else if statusCode < 200 && statusCode > 299 {
+                print("Unexpected server error")
+                completionBlock?(nil, "Unexpected server error")
+                return
+            }
+            
+            guard let processedData = self.processData(data) else {
+                print("No data returned from the server")
+                completionBlock?(nil, "Unexpected server error")
+                return
+            }
+            
+            let jsonResponse: [String:AnyObject]
+            
+            do {
+                jsonResponse = try JSONSerialization.jsonObject(with: processedData, options: []) as! [String:AnyObject]
+            } catch {
+                print("Error parsing JSON")
+                completionBlock?(nil, "Unexpected error")
+                return
+            }
+            ///request.description    String    "https://parse.udacity.com/parse/classes/StudentLocation/Ia4F3jLLFS"    
+            completionBlock?(jsonResponse as AnyObject, nil)
+        }
+        
+        task.resume()
+    }
+    
+    func processData(_ data: Data?) -> Data? {
+        return data!
+    }
+    
+    func baseURLRequest(with endpoint: String) -> URLRequest {
+        var baseURLRequest = URLRequest(url: URL(string: endpoint)!)
+        baseURLRequest.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        baseURLRequest.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        baseURLRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        return baseURLRequest
     }
     
     func request(method: String, url: String, parameters: [String: Any]? = nil, headers: [String: String]? = nil,

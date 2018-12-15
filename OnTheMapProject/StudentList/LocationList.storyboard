@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,18 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7E-Qv-KRs">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <items>
-                                    <barButtonItem title="Item" image="icon_mapview-deselected" id="Lg6-C1-xBI"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hPv-qo-jr0"/>
-                                    <barButtonItem title="Item" image="icon_listview-deselected" id="r6S-zr-j3R">
-                                        <connections>
-                                            <action selector="locationList:" destination="J9u-gj-eec" id="hub-b0-ceK"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrZ-BP-NIQ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
@@ -55,10 +43,10 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oH1-7p-55z">
-                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationCell" id="z0h-6c-a8g" customClass="StudentLocationCell" customModule="OnTheMapProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationCell" id="z0h-6c-a8g" customClass="StudentLocationCell" customModule="OnTheMapProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z0h-6c-a8g" id="H7y-NW-ePW">
@@ -104,28 +92,92 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1WB-05-yaw" firstAttribute="bottom" secondItem="oH1-7p-55z" secondAttribute="bottom" id="2lY-6g-MJo"/>
                             <constraint firstItem="oH1-7p-55z" firstAttribute="top" secondItem="NrZ-BP-NIQ" secondAttribute="bottom" id="9Ch-UO-hhr"/>
-                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="top" secondItem="oH1-7p-55z" secondAttribute="bottom" id="C6h-eA-CW1"/>
                             <constraint firstItem="NrZ-BP-NIQ" firstAttribute="leading" secondItem="1WB-05-yaw" secondAttribute="leading" id="FTb-oM-9sh"/>
-                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="bottom" secondItem="1WB-05-yaw" secondAttribute="bottom" id="RgH-CJ-VP4"/>
                             <constraint firstItem="NrZ-BP-NIQ" firstAttribute="top" secondItem="1WB-05-yaw" secondAttribute="top" id="UWt-Wq-XU8"/>
                             <constraint firstItem="oH1-7p-55z" firstAttribute="leading" secondItem="1WB-05-yaw" secondAttribute="leading" id="Ul1-Nz-5fg"/>
-                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="trailing" secondItem="1WB-05-yaw" secondAttribute="trailing" id="WxK-fm-nse"/>
-                            <constraint firstItem="k7E-Qv-KRs" firstAttribute="leading" secondItem="1WB-05-yaw" secondAttribute="leading" id="iIv-L9-I1N"/>
                             <constraint firstItem="1WB-05-yaw" firstAttribute="trailing" secondItem="oH1-7p-55z" secondAttribute="trailing" id="k51-Z8-3SP"/>
                             <constraint firstItem="NrZ-BP-NIQ" firstAttribute="trailing" secondItem="1WB-05-yaw" secondAttribute="trailing" id="sIG-Qc-ewb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1WB-05-yaw"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="List" image="icon_listview-deselected" id="qVx-W1-4Dt"/>
                     <connections>
-                        <outlet property="list" destination="r6S-zr-j3R" id="tSX-9Y-CID"/>
-                        <outlet property="tableView" destination="oH1-7p-55z" id="EI6-cx-9rq"/>
-                        <outlet property="toolbar" destination="k7E-Qv-KRs" id="vsM-bU-tNb"/>
+                        <outlet property="tableView" destination="oH1-7p-55z" id="vai-LA-qMx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zY-Oe-1TM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="80.50974512743629"/>
+            <point key="canvasLocation" x="-103" y="40"/>
+        </scene>
+        <!--Student List Tab Bar View Controller-->
+        <scene sceneID="jga-HA-Atb">
+            <objects>
+                <tabBarController storyboardIdentifier="StudentListTabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N2s-Ns-MWx" customClass="StudentListTabBarViewController" customModule="OnTheMapProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lAK-AF-IFr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="J9u-gj-eec" kind="relationship" relationship="viewControllers" id="UQj-vB-NaA"/>
+                        <segue destination="phB-fv-lLn" kind="relationship" relationship="viewControllers" id="gws-Yr-Vn4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RZV-lG-1sA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1186" y="-342"/>
+        </scene>
+        <!--MapViewController-->
+        <scene sceneID="qjq-fe-rIV">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" title="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="phB-fv-lLn" customClass="MapViewController" customModule="OnTheMapProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P5I-bI-bgM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mQ-KZ-AD2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="zHe-QU-bnU">
+                                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="LYM-Sj-qHp"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="za4-6u-pgh">
+                                                <connections>
+                                                    <action selector="addLocation:" destination="phB-fv-lLn" id="kC7-CH-QzB"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="refresh" id="Asr-Dq-liD"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bbN-Gj-jsS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DZZ-eb-b67" firstAttribute="bottom" secondItem="bbN-Gj-jsS" secondAttribute="bottom" id="62f-IA-GGO"/>
+                            <constraint firstItem="bbN-Gj-jsS" firstAttribute="leading" secondItem="DZZ-eb-b67" secondAttribute="leading" id="AxO-UK-jO8"/>
+                            <constraint firstItem="bbN-Gj-jsS" firstAttribute="top" secondItem="2mQ-KZ-AD2" secondAttribute="bottom" id="O78-fs-dBu"/>
+                            <constraint firstItem="DZZ-eb-b67" firstAttribute="trailing" secondItem="bbN-Gj-jsS" secondAttribute="trailing" id="SOl-mw-KcI"/>
+                            <constraint firstItem="2mQ-KZ-AD2" firstAttribute="trailing" secondItem="DZZ-eb-b67" secondAttribute="trailing" id="aSh-eT-r3X"/>
+                            <constraint firstItem="2mQ-KZ-AD2" firstAttribute="top" secondItem="DZZ-eb-b67" secondAttribute="top" id="cUX-SM-hgc"/>
+                            <constraint firstItem="2mQ-KZ-AD2" firstAttribute="leading" secondItem="DZZ-eb-b67" secondAttribute="leading" id="iFk-tl-0bc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DZZ-eb-b67"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="icon_mapview-deselected" id="Cg2-XK-BAD"/>
+                    <connections>
+                        <outlet property="mapView" destination="bbN-Gj-jsS" id="F3W-EX-wNd"/>
+                        <outlet property="navBar" destination="2mQ-KZ-AD2" id="lFP-XQ-ZWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9fz-wL-3oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="-752"/>
         </scene>
     </scenes>
     <resources>
