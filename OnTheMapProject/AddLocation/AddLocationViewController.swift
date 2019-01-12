@@ -65,6 +65,10 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
         self.view.willRemoveSubview(confirmButton)
     }
     
+    @IBAction func cancelAdd(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

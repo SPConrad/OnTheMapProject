@@ -36,6 +36,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in ParseClient.performRequest(_:completionBlock:):ParseClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "JSONSerialization.jsonObject(with: processedData, options: []) as! [String:AnyObject]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in ParseClient.postStudentLocation(student:completionHandlerForPost:):ParseClient.swift">
          <PersistentStrings>
             <PersistentString
@@ -43,14 +51,6 @@
             </PersistentString>
             <PersistentString
                value = "response.debugDescription">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MapViewController.centerMapOnLocation(location:):MapViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "mapView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -63,10 +63,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in ParseClient.performRequest(_:completionBlock:):ParseClient.swift">
+         contextName = "MapViewController.centerMapOnLocation(location:):MapViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "JSONSerialization.jsonObject(with: processedData, options: []) as! [String:AnyObject]">
+               value = "mapView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -125,6 +125,14 @@
             </PersistentString>
             <PersistentString
                value = "self.students">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UdacityClient.postSession(username:password:_:):UdacityClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(response as! HTTPURLResponse).statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

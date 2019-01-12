@@ -30,12 +30,12 @@
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="add" id="vW3-kz-aBP">
                                                 <connections>
-                                                    <action selector="add:" destination="J9u-gj-eec" id="cGn-yM-L1e"/>
+                                                    <action selector="add:" destination="J9u-gj-eec" id="ZU7-eu-Vvl"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="refresh" id="kcq-i9-LxD">
                                                 <connections>
-                                                    <action selector="refresh:" destination="J9u-gj-eec" id="mmC-0n-38d"/>
+                                                    <action selector="refresh:" destination="J9u-gj-eec" id="yQZ-PJ-XWV"/>
                                                 </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -129,6 +129,21 @@
             </objects>
             <point key="canvasLocation" x="-1186" y="-342"/>
         </scene>
+        <!--ListMapView-->
+        <scene sceneID="hMH-5I-6fF">
+            <objects>
+                <viewController storyboardIdentifier="ListMapView" title="ListMapView" id="Gfw-vb-lEX" customClass="ListMapViewController" customModule="OnTheMapProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jBv-UI-EJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KVW-g0-VxT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2r4-fS-gc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1079" y="-1255"/>
+        </scene>
         <!--MapViewController-->
         <scene sceneID="qjq-fe-rIV">
             <objects>
@@ -141,7 +156,9 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="zHe-QU-bnU">
-                                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="LYM-Sj-qHp"/>
+                                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="LYM-Sj-qHp">
+                                            <color key="tintColor" red="0.0075128641910851002" green="0.69755548238754272" blue="0.88981801271438599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="add" id="za4-6u-pgh">
                                                 <connections>

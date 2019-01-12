@@ -48,12 +48,25 @@ class UdacityClient: NSObject {
                 onComplete?(String(describing: error))
             }
             
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            
+            if statusCode >= 400 && statusCode <= 403 {
+                let errorMessage = "Bad credentials."
+                onComplete?(errorMessage)
+                return
+            } else if statusCode < 200 && statusCode > 299 {
+                print("Unexpected server error")
+                onComplete?("Unexpected server error")
+                return
+            }
+            
             let range = Range(5..<data!.count)
             
             let newData = data?.subdata(in: range) /* subset response data! */
             
             self.assignLoggedInUser(newData!)
             
+            print("now logged in")
             print(String(data: newData!, encoding: .utf8)!)
             
             onComplete?(nil)

@@ -28,13 +28,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPress(_ sender: Any) {
-//        if let listTbVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "StudentListTabBarViewController") as? StudentListTabBarViewController {
-//            listTbVc.configure(.list)
-//            self.present(listTbVc, animated: true, completion: nil)
-//        } else {
-//            print("Whoops")
-//        }
-//
 
         guard let username = emailTextField.text?.trimmingCharacters(in: .whitespaces), let password = passwordTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
 
@@ -46,23 +39,30 @@ class LoginViewController: UIViewController {
         
     }
     
-    func sendLoginRequest(username: String, password: String) {
-        UdacityClient.sharedInstance().postSession(username: username, password: password, { (error) -> Void in
-            DispatchQueue.main.async {
-                if let listTbVc = UIStoryboard(name: "LocationList", bundle: nil).instantiateViewController(withIdentifier: "StudentListTabBarViewController") as? StudentListTabBarViewController {
-                    listTbVc.configure(.list)
-                    self.present(listTbVc, animated: true, completion: nil)
-                } else {
-                    print("Whoops")
-                }
-        
-            }
-            if let error = error {
-                print("Error: \(error)")
-            }
-        })
-        
-    }
+//    if DebugSettings.shouldShowNewUserSettings {
+//        let vc = storyboard.instantiateViewController(withIdentifier: "userDetailsViewController) as! UserDetailViewControllerImpl
+//        vc.currentUser = currentUser
+//        present(vc, animated:true)
+//    } else {
+//        let vc = storyboard.instantiateViewController(withIdentifier: "LegacyUserDetailsViewController) as! UserDetailViewControllerImpl
+//        vc.currentUser = currentUser
+//        present(vc, animated: true)
+//    }
     
-
+    
+    
+    func sendLoginRequest(username: String, password: String) {
+//        UdacityClient.sharedInstance().postSession(username: "konrad9@gmail.com", password: password, { (error) -> Void in
+//            if let error = error {
+//                print("Error: \(error)")
+//            } else {
+//                DispatchQueue.main.async {
+                    let listMapViewStoryboard = UIStoryboard(name: "LocationList", bundle: nil)
+                    let listMapVc = listMapViewStoryboard.instantiateViewController(withIdentifier: "ListMapView") as! ListMapViewController
+                    self.present(listMapVc, animated: true, completion: nil)
+                }
+//            }
+//        })
+//    }
+    
 }
