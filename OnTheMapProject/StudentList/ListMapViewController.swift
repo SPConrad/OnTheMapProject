@@ -48,7 +48,12 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         return tableView
     }()
     
-    // MARK: - Shared View
+    // MARK: - Create Buttons
+    
+    //    private lazy var logoutButtonBarButtonItem: UIBarButtonItem = {
+    //        let button = UIBarButtonItem()
+    //        button.possibleTitles = ["LOGOUT"]
+    //    }()
     
     private lazy var logoutButton: UIButton = {
         let logoutButton = UIButton()
@@ -57,7 +62,7 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         logoutButton.setTitle("LOGOUT", for: .normal)
         logoutButton.setTitleColor(UIColor.blue, for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutSession), for: UIControlEvents.touchUpInside)
-
+        
         return logoutButton
     }()
     
@@ -68,7 +73,7 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         refreshButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         refreshButton.setImage(UIImage(named: "icon_refresh"), for: .normal)
         refreshButton.addTarget(self, action: #selector(makeCallForStudents), for: UIControlEvents.touchUpInside)
-
+        
         return refreshButton
     }()
     
@@ -114,7 +119,37 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         return bottomBar
     }()
     
+    
+    private lazy var refreshButtonItem: UIBarButtonItem = {
+        let refreshButtonItem = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(makeCallForStudents))
+        
+        return refreshButtonItem
+    }()
+    
+    
+    private lazy var addButtonItem: UIBarButtonItem = {
+        let addButtonItem = UIBarButtonItem(image: UIImage(named: "icon_addpin"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(submitNewLocation))
+        
+        return addButtonItem
+    }()
+    
+    func createListView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(StudentListCell.self, forCellReuseIdentifier: "StudentListCell")
+        layoutListView()
+        
+        print("list view created")
+    }
+    
+    
+    // MARK: - Layout functions
+    
     func layoutTopBar() {
+        //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "title", style: .plain, target: self, action: #selector(logoutSession))
+        //        self.navigationItem.rightBarButtonItems = [refreshButtonItem, addButtonItem]
+        
+        
         self.topBar.addSubview(logoutButton)
         self.topBar.addSubview(refreshButton)
         self.topBar.addSubview(addLocationButton)
@@ -159,20 +194,9 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
             ])
     }
     
-    func createListView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(StudentListCell.self, forCellReuseIdentifier: "StudentListCell")
-        layoutListView()
-
-        print("list view created")
-    }
-    
     func layoutMainView() {
         view.addSubview(topBar)
         view.addSubview(bottomBar)
-        layoutBottomBar()
-        layoutTopBar()
         
         self.navigationItem.title = "On the Map"
         
@@ -190,6 +214,10 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
             bottomBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             bottomBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
+        
+        
+        layoutBottomBar()
+        layoutTopBar()
     }
     
     func disableListView() {
@@ -228,6 +256,8 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     func refreshStudentList() {
         print("refresh student list")
     }
+    
+    // MARK: - Button functions
     
     @objc
     func logoutSession() {

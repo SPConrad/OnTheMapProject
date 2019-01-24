@@ -39,30 +39,18 @@ class LoginViewController: UIViewController {
         
     }
     
-//    if DebugSettings.shouldShowNewUserSettings {
-//        let vc = storyboard.instantiateViewController(withIdentifier: "userDetailsViewController) as! UserDetailViewControllerImpl
-//        vc.currentUser = currentUser
-//        present(vc, animated:true)
-//    } else {
-//        let vc = storyboard.instantiateViewController(withIdentifier: "LegacyUserDetailsViewController) as! UserDetailViewControllerImpl
-//        vc.currentUser = currentUser
-//        present(vc, animated: true)
-//    }
-    
-    
-    
     func sendLoginRequest(username: String, password: String) {
-//        UdacityClient.sharedInstance().postSession(username: "konrad9@gmail.com", password: password, { (error) -> Void in
-//            if let error = error {
-//                print("Error: \(error)")
-//            } else {
-//                DispatchQueue.main.async {
+        UdacityClient.sharedInstance().postSession(username: "konrad9@gmail.com", password: password, { (error) -> Void in
+            if let error = error {
+                print("Error: \(error)")
+            } else {
+                DispatchQueue.main.async {
                     let listMapViewStoryboard = UIStoryboard(name: "LocationList", bundle: nil)
                     let listMapVc = listMapViewStoryboard.instantiateViewController(withIdentifier: "ListMapView") as! ListMapViewController
                     self.present(listMapVc, animated: true, completion: nil)
                 }
-//            }
-//        })
-//    }
+            }
+        })
+    }
     
 }
