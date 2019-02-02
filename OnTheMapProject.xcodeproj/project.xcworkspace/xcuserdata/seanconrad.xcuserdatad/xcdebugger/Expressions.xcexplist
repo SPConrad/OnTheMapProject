@@ -22,6 +22,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ListMapViewController.displayMapView():ListMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "activeViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ParseClient.request(method:url:parameters:headers:onSuccess:onFailure:onCompleted:):ParseClient.swift">
       </ContextState>
       <ContextState
@@ -83,6 +91,9 @@
                value = "self.loggedInUser?">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in ParseClient.getStudentLocation(uniqueKey:_:):ParseClient.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in AddLocationViewController.findLocation(_:):AddLocationViewController.swift">

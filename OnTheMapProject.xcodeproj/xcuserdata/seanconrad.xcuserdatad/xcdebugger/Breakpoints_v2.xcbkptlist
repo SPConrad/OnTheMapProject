@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
-            timestampString = "570840060.152413"
+            timestampString = "570840431.293408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "displayMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
-            timestampString = "570840060.153075"
+            timestampString = "570840431.293897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "displayMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
-            timestampString = "570840060.153466"
+            timestampString = "570840431.294208"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "displayMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
-            timestampString = "570840075.234421"
+            timestampString = "570840431.294506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "displayMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
-            timestampString = "570840076.164991"
+            timestampString = "570840431.2948149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "displayMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
-            timestampString = "570840076.457592"
+            timestampString = "570840431.295108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "displayMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,12 +122,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
-            timestampString = "570840077.1323479"
+            timestampString = "570840431.295399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "displayMapView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
+            timestampString = "570840431.295691"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "displayMapView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
+            timestampString = "570840431.29599"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "displayMapView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheMapProject/StudentList/ListMapViewController.swift"
+            timestampString = "570840431.296289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "displayMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
