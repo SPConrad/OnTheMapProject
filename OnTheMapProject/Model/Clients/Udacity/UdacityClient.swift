@@ -21,7 +21,12 @@ class UdacityClient: NSObject {
     
     var session = URLSession.shared
     
-    func getUser(userId: String, _ onComplete: ((_ userData: Data?, _ error: String?) -> Void)?) {
+    func getUser(_ onComplete: ((_ userData: Data?, _ error: String?) -> Void)?) {
+        
+        guard let userId = loggedInUser?.key else {
+            onComplete?(nil, "Error getting userID")
+            return
+        }
         
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/\(userId)")!)
         
@@ -115,9 +120,6 @@ class UdacityClient: NSObject {
             self.loggedInUser?.username = username
             self.loggedInUser?.key = accountData["key"] as? String
             self.loggedInUser?.sessionId = SessionData["id"] as? String
-            
-            print(self.loggedInUser)
-            
             onComplete?(nil)
         }
         

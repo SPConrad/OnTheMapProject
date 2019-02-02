@@ -12,8 +12,8 @@ public struct UdacityUser {
     var username: String?
     var key: String?
     var sessionId: String?
-    var firstName: String?
-    var lastName: String?
+    var firstName: String? = "Sean"
+    var lastName: String? = "Conrad"
     
     init() {}
     

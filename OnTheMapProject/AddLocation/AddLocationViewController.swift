@@ -49,27 +49,57 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
 
     
     @objc func confirmAddLocationPressed() {
-            let student = Student(student: [
-                "firstName": "John" as AnyObject,
-                "lastName": "Smith" as AnyObject,
-                "mediaURL": mapPoint.title as AnyObject,
-                "latitude": mapPoint.coordinate.latitude as AnyObject,
-                "longitude": mapPoint.coordinate.longitude as AnyObject,
-                "uniqueKey": "u10179641" as AnyObject
-                ])
         
+        guard let mapString = namedLocationTextField.text else {
+            print("Error getting map string")
+            return
+        }
         
-        ParseClient.sharedInstance().postStudentLocation(newStudent: student) { objectId, error in
-            print("Complete")
+        guard let mediaUrl = urlTextField.text else {
+            print("Error getting media URL")
+            return
+        }
+        
+        UdacityClient.sharedInstance().getUser { data, error in
             guard error == nil else {
-                print("Error posting location!")
+                print("Error getting user")
                 return
             }
-            print(objectId)
-            self.dismiss(animated: true, completion: nil)
+            
+            // Check if student already exists
+            guard let key = UdacityClient.sharedInstance().loggedInUser?.key else {
+                print("Error getting key")
+                return
+            }
+            
+            ParseClient.sharedInstance().getStudentLocation(uniqueKey: key, { (student, error) in
+                var method = "POST"
+                
+                if student == nil {
+                    method = "POST"
+                } else {
+                    method = "PUT"
+                }
+            
+                
+                ParseClient.sharedInstance().postStudentLocation(method: method, mapString: mapString, mediaUrl: mediaUrl, lat: self.mapPoint.coordinate.latitude, lon: self.mapPoint.coordinate.longitude) { objectId, error in
+                    print("Complete")
+                    guard error == nil else {
+                        print("Error posting location!")
+                        return
+                    }
+                    self.dismiss(animated: true, completion: nil)
+                }
+
+                DispatchQueue.main.async {
+                    self.view.willRemoveSubview(self.mapView)
+                    self.view.willRemoveSubview(self.confirmButton)
+                }
+                
+                
+            })
         }
-        self.view.willRemoveSubview(mapView)
-        self.view.willRemoveSubview(confirmButton)
+
     }
     
     @IBAction func cancelAdd(_ sender: Any) {

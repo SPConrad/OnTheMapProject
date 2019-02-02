@@ -22,42 +22,35 @@ class ParseClient: NSObject {
         super.init()
     }
     
-    func getStudentLocation(uniqueKey: String, _ onComplete: ((_ error: String?) -> Void)?) {
+    func getStudentLocation(uniqueKey: String, _ onComplete: ((_ student: Student?, _ error: String?) -> Void)?) {
         
-        let urlString = URLBuilder.studentLocationUrl()
+        var urlString = URLBuilder.studentLocationUrl()
+        let parameters = ["where" : "{\"uniqueKey\": \"\(uniqueKey)\"}"]
         
-        let parameters = [
-                "uniqueKey": UdacityClient.sharedInstance().loggedInUser?.key as AnyObject
-            ] as [String:AnyObject]
+        let encodedParameters = NSURLComponents()
+        encodedParameters.queryItems = parameters.map { URLQueryItem(name: $0, value: String($1)) }
         
-        guard let postData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else {
-            onComplete?("Error generating POST json data object")
-            return
-        }
-        
-        let postJson: String! = String(data: postData, encoding: String.Encoding.utf8)
-
+        urlString = urlString + encodedParameters.percentEncodedQuery!
         
         var makeRequest: URLRequest = baseURLRequest(with: urlString)
         
         makeRequest.httpMethod = "GET"
         
-        makeRequest.httpBody = postJson.data(using: String.Encoding.utf8)
-        
         performRequest(makeRequest) { (jsonResponse, error) in
             
             guard error == nil else {
-                onComplete?(error)
+                onComplete?(nil, error)
                 return
             }
             
             guard (jsonResponse!["objectId"] as? String) != nil else {
-                print("Invalid response")
-                onComplete?("Invalid response")
+                onComplete?(nil, "Student does not exist")
                 return
             }
             
-            onComplete?(nil)
+            let student = Student(student: jsonResponse as! [String:AnyObject])
+            
+            onComplete?(student, nil)
         }
         
     }
@@ -86,20 +79,20 @@ class ParseClient: NSObject {
         })
     }
     
-    func postStudentLocation(newStudent: Student, _ onComplete: ((_ objectId: String?, _ error: String?) -> Void)?) {
+    func postStudentLocation(method: String, mapString: String, mediaUrl: String, lat: Double, lon: Double, _ onComplete: ((_ objectId: String?, _ error: String?) -> Void)?) {
 
         let urlString = URLBuilder.studentLocationUrl()
 
         let parameters = [
             "uniqueKey": UdacityClient.sharedInstance().loggedInUser?.key as AnyObject,
-            "firstName": newStudent.firstName as AnyObject,
-            "lastName": newStudent.lastName as AnyObject,
-            "mapString": "http://google.com" as AnyObject,
-            "mediaURL": newStudent.mediaURL as AnyObject,
-            "latitude": newStudent.latitude as AnyObject,
-            "longitude": newStudent.longitude as AnyObject
+            "firstName": UdacityClient.sharedInstance().loggedInUser?.firstName as AnyObject,
+            "lastName": UdacityClient.sharedInstance().loggedInUser?.lastName as AnyObject,
+            "mapString": mapString as AnyObject,
+            "mediaURL": mediaUrl as AnyObject,
+            "latitude": lat as AnyObject,
+            "longitude": lon as AnyObject
             ] as [String:AnyObject]
-
+        
         guard let postData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else {
             onComplete?(nil, "Error generating POST json data object")
             return
@@ -109,7 +102,7 @@ class ParseClient: NSObject {
         
         var makeRequest: URLRequest = baseURLRequest(with: urlString)
 
-        makeRequest.httpMethod = "POST"
+        makeRequest.httpMethod = method
         
         makeRequest.httpBody = postJson.data(using: String.Encoding.utf8)
 
