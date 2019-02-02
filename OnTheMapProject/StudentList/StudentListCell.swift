@@ -36,7 +36,11 @@ class StudentListCell: UITableViewCell {
         layoutCell()
     }
     
-    func layoutCell() {
+    func layoutCell() {        
+        NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalToConstant: 70)
+            ])
+        
         NSLayoutConstraint.activate([
             mapPin.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             mapPin.widthAnchor.constraint(equalToConstant: 80),
@@ -56,10 +60,6 @@ class StudentListCell: UITableViewCell {
             urlLabel.bottomAnchor.constraint(equalTo: mapPin.bottomAnchor),
             urlLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             urlLabel.heightAnchor.constraint(equalTo: nameLabel.heightAnchor)
-            ])
-        
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 70)
             ])
     }
 }

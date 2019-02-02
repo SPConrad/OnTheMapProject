@@ -45,49 +45,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oH1-7p-55z">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationCell" id="z0h-6c-a8g" customClass="StudentLocationCell" customModule="OnTheMapProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z0h-6c-a8g" id="H7y-NW-ePW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="l40-gf-4JG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="79.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="inU-C5-bYt"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ie-7g-sju">
-                                                    <rect key="frame" x="115" y="11" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMm-Z9-1AL">
-                                                    <rect key="frame" x="115" y="44" width="32.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="5ie-7g-sju" firstAttribute="leading" secondItem="l40-gf-4JG" secondAttribute="trailing" constant="35" id="0fg-x7-nKt"/>
-                                                <constraint firstItem="l40-gf-4JG" firstAttribute="top" secondItem="H7y-NW-ePW" secondAttribute="top" id="3jB-iO-RFr"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="wMm-Z9-1AL" secondAttribute="bottom" constant="4" id="BvA-y6-pmN"/>
-                                                <constraint firstItem="wMm-Z9-1AL" firstAttribute="leading" secondItem="l40-gf-4JG" secondAttribute="trailing" constant="35" id="a6Y-3a-wtc"/>
-                                                <constraint firstAttribute="bottom" secondItem="l40-gf-4JG" secondAttribute="bottom" id="edI-YF-5t0"/>
-                                                <constraint firstItem="5ie-7g-sju" firstAttribute="top" secondItem="H7y-NW-ePW" secondAttribute="topMargin" id="ewg-ZH-ahK"/>
-                                                <constraint firstItem="l40-gf-4JG" firstAttribute="leading" secondItem="H7y-NW-ePW" secondAttribute="leading" id="jQL-8H-NWS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="nameLabel" destination="5ie-7g-sju" id="kA0-Pi-DPC"/>
-                                            <outlet property="urlLabel" destination="wMm-Z9-1AL" id="OjA-87-gYk"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -238,6 +195,5 @@
     <resources>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
-        <image name="icon_pin" width="24" height="24"/>
     </resources>
 </document>

@@ -145,35 +145,6 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     
     // MARK: - Layout functions
     
-    func layoutTopBar() {
-
-        
-        
-//        self.topBar.addSubview(logoutButton)
-//        self.topBar.addSubview(refreshButton)
-//        self.topBar.addSubview(addLocationButton)
-        
-//        NSLayoutConstraint.activate([
-//            logoutButton.topAnchor.constraint(equalTo: topBar.topAnchor),
-//            logoutButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
-//            logoutButton.leadingAnchor.constraint(equalTo: topBar.leadingAnchor),
-//            logoutButton.widthAnchor.constraint(equalToConstant: 100)
-//            ])
-//
-//        NSLayoutConstraint.activate([
-//            addLocationButton.topAnchor.constraint(equalTo: topBar.topAnchor),
-//            addLocationButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
-//            addLocationButton.trailingAnchor.constraint(equalTo: topBar.trailingAnchor)
-//            ])
-//
-//        NSLayoutConstraint.activate([
-//            refreshButton.topAnchor.constraint(equalTo: topBar.topAnchor),
-//            refreshButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
-//            refreshButton.trailingAnchor.constraint(equalTo: addLocationButton.leadingAnchor),
-//            refreshButton.widthAnchor.constraint(equalToConstant: 50)
-//            ])
-    }
-    
     func layoutBottomBar() {
         bottomBar.addSubview(listViewTabButton)
         bottomBar.addSubview(mapViewTabButton)
@@ -194,7 +165,6 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     func layoutMainView() {
-//        view.addSubview(topBar)
         self.navigationController?.isToolbarHidden = false
         self.navigationController?.isNavigationBarHidden = false
         
@@ -206,13 +176,6 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         self.navigationItem.title = "On the Map"
         
-//        NSLayoutConstraint.activate([
-//            topBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            topBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            topBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            topBar.heightAnchor.constraint(equalToConstant: 44)
-//            ])
-        
         NSLayoutConstraint.activate([
             bottomBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             bottomBar.heightAnchor.constraint(equalToConstant: 50),
@@ -223,7 +186,6 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         
         layoutBottomBar()
-//        layoutTopBar()
     }
     
     func disableListView() {
@@ -234,12 +196,10 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
-            //tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomBar.topAnchor)
             ])
-        
     }
     
     func disableMapView() {
@@ -249,7 +209,6 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     func layoutMapView() {
         view.addSubview(mapView)
         NSLayoutConstraint.activate([
-            //mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
