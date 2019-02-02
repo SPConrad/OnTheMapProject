@@ -9,17 +9,12 @@
 import Foundation
 
 public struct UdacityUser {
-    let username: String?
-    let key: String?
-    let sessionId: String?
-    let firstName: String?
-    let lastName: String?
+    var username: String?
+    var key: String?
+    var sessionId: String?
+    var firstName: String?
+    var lastName: String?
     
-    init(_ user: [String:AnyObject]) {
-        username = user["username"] as? String ?? ""
-        key = user["key"] as? String ?? ""
-        sessionId = user["sessionId"] as? String ?? ""
-        firstName = user["firstName"] as? String ?? ""
-        lastName = user["lastName"] as? String ?? ""
-    }
+    init() {}
+    
 }

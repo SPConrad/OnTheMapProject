@@ -23,6 +23,10 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         case listView
         case mapView
     }
+    @IBOutlet weak var logoutBtn: UIBarButtonItem!
+    @IBOutlet weak var refreshBtn: UIBarButtonItem!
+    @IBOutlet weak var addNewLocationBtn: UIBarButtonItem!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     private var activeViewController = viewControllers.listView
     
@@ -50,11 +54,7 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     
     // MARK: - Create Buttons
     
-    //    private lazy var logoutButtonBarButtonItem: UIBarButtonItem = {
-    //        let button = UIBarButtonItem()
-    //        button.possibleTitles = ["LOGOUT"]
-    //    }()
-    
+
     private lazy var logoutButton: UIButton = {
         let logoutButton = UIButton()
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -146,33 +146,32 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     // MARK: - Layout functions
     
     func layoutTopBar() {
-        //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "title", style: .plain, target: self, action: #selector(logoutSession))
-        //        self.navigationItem.rightBarButtonItems = [refreshButtonItem, addButtonItem]
+
         
         
-        self.topBar.addSubview(logoutButton)
-        self.topBar.addSubview(refreshButton)
-        self.topBar.addSubview(addLocationButton)
+//        self.topBar.addSubview(logoutButton)
+//        self.topBar.addSubview(refreshButton)
+//        self.topBar.addSubview(addLocationButton)
         
-        NSLayoutConstraint.activate([
-            logoutButton.topAnchor.constraint(equalTo: topBar.topAnchor),
-            logoutButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
-            logoutButton.leadingAnchor.constraint(equalTo: topBar.leadingAnchor),
-            logoutButton.widthAnchor.constraint(equalToConstant: 100)
-            ])
-        
-        NSLayoutConstraint.activate([
-            addLocationButton.topAnchor.constraint(equalTo: topBar.topAnchor),
-            addLocationButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
-            addLocationButton.trailingAnchor.constraint(equalTo: topBar.trailingAnchor)
-            ])
-        
-        NSLayoutConstraint.activate([
-            refreshButton.topAnchor.constraint(equalTo: topBar.topAnchor),
-            refreshButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
-            refreshButton.trailingAnchor.constraint(equalTo: addLocationButton.leadingAnchor),
-            refreshButton.widthAnchor.constraint(equalToConstant: 50)
-            ])
+//        NSLayoutConstraint.activate([
+//            logoutButton.topAnchor.constraint(equalTo: topBar.topAnchor),
+//            logoutButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
+//            logoutButton.leadingAnchor.constraint(equalTo: topBar.leadingAnchor),
+//            logoutButton.widthAnchor.constraint(equalToConstant: 100)
+//            ])
+//
+//        NSLayoutConstraint.activate([
+//            addLocationButton.topAnchor.constraint(equalTo: topBar.topAnchor),
+//            addLocationButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
+//            addLocationButton.trailingAnchor.constraint(equalTo: topBar.trailingAnchor)
+//            ])
+//
+//        NSLayoutConstraint.activate([
+//            refreshButton.topAnchor.constraint(equalTo: topBar.topAnchor),
+//            refreshButton.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
+//            refreshButton.trailingAnchor.constraint(equalTo: addLocationButton.leadingAnchor),
+//            refreshButton.widthAnchor.constraint(equalToConstant: 50)
+//            ])
     }
     
     func layoutBottomBar() {
@@ -195,17 +194,24 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     func layoutMainView() {
-        view.addSubview(topBar)
+//        view.addSubview(topBar)
+        self.navigationController?.isToolbarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "title", style: .plain, target: self, action: #selector(logoutSession))
+        self.navigationItem.rightBarButtonItems = [refreshButtonItem, addButtonItem]
+        
+        
         view.addSubview(bottomBar)
         
         self.navigationItem.title = "On the Map"
         
-        NSLayoutConstraint.activate([
-            topBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            topBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            topBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            topBar.heightAnchor.constraint(equalToConstant: 44)
-            ])
+//        NSLayoutConstraint.activate([
+//            topBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            topBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+//            topBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+//            topBar.heightAnchor.constraint(equalToConstant: 44)
+//            ])
         
         NSLayoutConstraint.activate([
             bottomBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
@@ -217,7 +223,7 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         
         layoutBottomBar()
-        layoutTopBar()
+//        layoutTopBar()
     }
     
     func disableListView() {
@@ -227,7 +233,8 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     func layoutListView() {
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topBar.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
+            //tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomBar.topAnchor)
@@ -242,8 +249,9 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     func layoutMapView() {
         view.addSubview(mapView)
         NSLayoutConstraint.activate([
-            mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            mapView.topAnchor.constraint(equalTo: topBar.bottomAnchor),
+            //mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            mapView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
+            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: bottomBar.topAnchor)
             ])
@@ -259,6 +267,15 @@ class ListMapViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     
     // MARK: - Button functions
     
+    @IBAction func logOut(_ sender: Any) {
+        logout()
+    }
+    @IBAction func addNewLocation(_ sender: Any) {
+        submitNewLocation()
+    }
+    @IBAction func refreshList(_ sender: Any) {
+        makeCallForStudents()
+    }
     @objc
     func logoutSession() {
         logout()

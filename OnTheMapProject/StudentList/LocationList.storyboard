@@ -136,9 +136,47 @@
                     <view key="view" contentMode="scaleToFill" id="jBv-UI-EJJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-T5-1YB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="04N-70-FUJ">
+                                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="3P3-SK-HAj">
+                                            <color key="tintColor" red="0.0075128641909999998" green="0.69755548239999998" blue="0.88981801270000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="logOut:" destination="Gfw-vb-lEX" id="6Jq-oJ-JCp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="i0O-tR-TyS">
+                                                <connections>
+                                                    <action selector="addNewLocation:" destination="Gfw-vb-lEX" id="iVn-4O-BIg"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="refresh" id="dRT-wl-FEH">
+                                                <connections>
+                                                    <action selector="refreshList:" destination="Gfw-vb-lEX" id="a4m-36-Eqt"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FlP-T5-1YB" firstAttribute="centerX" secondItem="KVW-g0-VxT" secondAttribute="centerX" id="L2s-K7-Rkj"/>
+                            <constraint firstItem="FlP-T5-1YB" firstAttribute="leading" secondItem="jBv-UI-EJJ" secondAttribute="leading" id="TF4-3G-NLd"/>
+                            <constraint firstItem="FlP-T5-1YB" firstAttribute="top" secondItem="KVW-g0-VxT" secondAttribute="top" id="V2I-NG-NGZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KVW-g0-VxT"/>
                     </view>
+                    <connections>
+                        <outlet property="addNewLocationBtn" destination="i0O-tR-TyS" id="4gT-nW-4gS"/>
+                        <outlet property="logoutBtn" destination="3P3-SK-HAj" id="gb4-GH-rTQ"/>
+                        <outlet property="navBar" destination="FlP-T5-1YB" id="lqW-ne-dhp"/>
+                        <outlet property="refreshBtn" destination="dRT-wl-FEH" id="6hn-Ws-IWN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2r4-fS-gc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

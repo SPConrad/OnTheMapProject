@@ -14,6 +14,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
     var location: Student!
     var mapPoint: MKPointAnnotation!
     
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var namedLocationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var findLocationButton: UIButton!
@@ -30,9 +31,10 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
     lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.white
-        button.titleLabel?.textColor = UIColor.black
-        button.titleLabel?.text = "Submit"
+        button.backgroundColor = UIView().tintColor
+        button.titleLabel?.textColor = UIColor.white
+        button.layer.cornerRadius = 5.0
+        button.setTitle("FINISH", for: .normal)
         button.addTarget(self, action: #selector(confirmAddLocationPressed), for: .touchUpInside)
         return button
     }()
@@ -57,9 +59,14 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
                 ])
         
         
-        ParseClient.sharedInstance().postStudentLocation(newStudent: student) { result in
+        ParseClient.sharedInstance().postStudentLocation(newStudent: student) { objectId, error in
             print("Complete")
-            print(result)
+            guard error == nil else {
+                print("Error posting location!")
+                return
+            }
+            print(objectId)
+            self.dismiss(animated: true, completion: nil)
         }
         self.view.willRemoveSubview(mapView)
         self.view.willRemoveSubview(confirmButton)
@@ -89,9 +96,13 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
         _ = urlTextField.resignFirstResponder()
     }
     
+    func switchToMapView() {
+        
+    }
+    
     func layoutMapView() {        
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo:  view.safeAreaLayoutGuide.topAnchor),
+            mapView.topAnchor.constraint(equalTo:  self.navBar.bottomAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
@@ -110,6 +121,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
     func createRegion(_ location: CLLocationCoordinate2D) -> MKCoordinateRegion {
         return MKCoordinateRegionMakeWithDistance(location, regionRadius, regionRadius)
     }
+    
     
     @IBAction func findLocation(_ sender: Any) {
         if let location = namedLocationTextField.text, let url = urlTextField.text {

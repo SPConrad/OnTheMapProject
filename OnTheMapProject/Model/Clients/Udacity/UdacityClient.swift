@@ -21,11 +21,41 @@ class UdacityClient: NSObject {
     
     var session = URLSession.shared
     
-    func assignLoggedInUser(_ newData: Data) {
-        let parsedResults = JSON.deserialize(data: newData) as! [String:AnyObject]
-        loggedInUser = UdacityUser(parsedResults)
+    func getUser(userId: String, _ onComplete: ((_ userData: Data?, _ error: String?) -> Void)?) {
         
-        print(newData)
+        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/users/\(userId)")!)
+        
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // encoding a JSON body from a string, can also use a Codable struct
+        
+        let session = URLSession.shared
+        
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            
+            if error != nil { // Handle error…
+                onComplete?(nil, String(describing: error))
+            }
+            
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            
+            if statusCode >= 400 && statusCode <= 403 {
+                let errorMessage = "Bad credentials."
+                onComplete?(nil, errorMessage)
+                return
+            } else if statusCode < 200 && statusCode > 299 {
+                print("Unexpected server error")
+                onComplete?(nil, "Unexpected server error")
+                return
+            }
+            
+            onComplete?(data, nil)
+        }
+        
+        task.resume()
     }
     
     func postSession(username: String, password: String, _ onComplete: ((_ error: String?) -> Void)?) {
@@ -62,17 +92,39 @@ class UdacityClient: NSObject {
             
             let range = Range(5..<data!.count)
             
-            let newData = data?.subdata(in: range) /* subset response data! */
+            guard let newData = data?.subdata(in: range) else {
+                print("Invalid response")
+                onComplete?("Unexpected bad JSON response")
+                return
+            }
             
-            self.assignLoggedInUser(newData!)
+            let jsonData = JSON.deserialize(data: newData)
             
-            print("now logged in")
-            print(String(data: newData!, encoding: .utf8)!)
+            guard let accountData = jsonData["account"] as? [String: AnyObject] else {
+                print("Invalid response")
+                onComplete?("Unexpected server error")
+                return
+            }
+            
+            guard let SessionData = jsonData["session"] as? [String: AnyObject] else {
+                print("Invalid response")
+                onComplete?("Unexpected server error")
+                return
+            }
+            self.loggedInUser = UdacityUser()
+            self.loggedInUser?.username = username
+            self.loggedInUser?.key = accountData["key"] as? String
+            self.loggedInUser?.sessionId = SessionData["id"] as? String
+            
+            print(self.loggedInUser)
             
             onComplete?(nil)
         }
         
         task.resume()
     }
+    
+    
+    
     
 }

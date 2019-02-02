@@ -88,12 +88,71 @@
                     <connections>
                         <outlet property="findLocationButton" destination="VPt-Xx-XQe" id="pUV-4y-dvM"/>
                         <outlet property="namedLocationTextField" destination="3Nh-FJ-hTl" id="qEd-j8-ECZ"/>
+                        <outlet property="navBar" destination="f5q-sD-3q8" id="veB-3Q-Bht"/>
                         <outlet property="urlTextField" destination="LjZ-qg-dwz" id="1Zp-Pm-cqs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hp7-sA-jKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hd8-aW-6UX">
+            <objects>
+                <viewController id="WVP-ru-DvL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6ki-WB-Iqt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVK-H5-xy4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Location" id="q7r-yq-ais">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Y8e-gB-8gd">
+                                            <connections>
+                                                <action selector="cancelAdd:" destination="mpi-lc-uAf" id="fHq-53-y5B"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1WP-IY-jwO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tL3-n2-zhI">
+                                <rect key="frame" x="16" y="607" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.28235294119999998" green="0.63137254899999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="6YU-R9-0E7"/>
+                                    <constraint firstAttribute="height" constant="40" id="SPf-zx-Ma6"/>
+                                </constraints>
+                                <state key="normal" title="FINISH">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="findLocation:" destination="mpi-lc-uAf" eventType="touchUpInside" id="OwS-WE-y9h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1WP-IY-jwO" firstAttribute="leading" secondItem="qdc-Qc-eF5" secondAttribute="leading" id="IRC-x8-oJ4"/>
+                            <constraint firstItem="GVK-H5-xy4" firstAttribute="trailing" secondItem="1WP-IY-jwO" secondAttribute="trailing" id="ODs-A2-V4D"/>
+                            <constraint firstItem="qdc-Qc-eF5" firstAttribute="bottom" secondItem="1WP-IY-jwO" secondAttribute="bottom" id="OPg-6s-ikx"/>
+                            <constraint firstItem="1WP-IY-jwO" firstAttribute="top" secondItem="GVK-H5-xy4" secondAttribute="bottom" id="VHk-8f-SXh"/>
+                            <constraint firstItem="GVK-H5-xy4" firstAttribute="leading" secondItem="1WP-IY-jwO" secondAttribute="leading" id="coi-JX-SXL"/>
+                            <constraint firstItem="qdc-Qc-eF5" firstAttribute="bottom" secondItem="tL3-n2-zhI" secondAttribute="bottom" constant="20" id="gdr-vG-vLE"/>
+                            <constraint firstItem="qdc-Qc-eF5" firstAttribute="trailing" secondItem="1WP-IY-jwO" secondAttribute="trailing" id="hMI-hT-tOf"/>
+                            <constraint firstItem="GVK-H5-xy4" firstAttribute="top" secondItem="qdc-Qc-eF5" secondAttribute="top" id="hzL-b4-K8a"/>
+                            <constraint firstItem="tL3-n2-zhI" firstAttribute="leading" secondItem="qdc-Qc-eF5" secondAttribute="leading" constant="16" id="iVt-sC-U7h"/>
+                            <constraint firstItem="qdc-Qc-eF5" firstAttribute="trailing" secondItem="tL3-n2-zhI" secondAttribute="trailing" constant="16" id="xVZ-5v-uvN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qdc-Qc-eF5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jwb-If-18z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340" y="136.28185907046478"/>
         </scene>
     </scenes>
     <resources>
